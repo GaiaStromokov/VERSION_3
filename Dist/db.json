@@ -1,0 +1,651 @@
+{
+    "Core": {
+        "Level": 2,
+        "Race": "Gnome",
+        "Subrace": "",
+        "Class": "Fighter",
+        "Subclass": "",
+        "Background": "Empty"
+    },
+    "Atr": {
+        "STR": {
+            "Base": 10,
+            "Race": 0,
+            "Milestone": 0
+        },
+        "DEX": {
+            "Base": 11,
+            "Race": 0,
+            "Milestone": 0
+        },
+        "CON": {
+            "Base": 10,
+            "Race": 0,
+            "Milestone": 0
+        },
+        "INT": {
+            "Base": 10,
+            "Race": 0,
+            "Milestone": 0
+        },
+        "WIS": {
+            "Base": 10,
+            "Race": 0,
+            "Milestone": 0
+        },
+        "CHA": {
+            "Base": 10,
+            "Race": 0,
+            "Milestone": 0
+        }
+    },
+    "Vision": {
+        "Dark": {
+            "Race": 60,
+            "Class": 0,
+            "Milestone": 0
+        },
+        "Blind": {
+            "Race": 0,
+            "Class": 0,
+            "Milestone": 0
+        },
+        "Tru": {
+            "Race": 0,
+            "Class": 0,
+            "Milestone": 0
+        },
+        "Tremor": {
+            "Race": 0,
+            "Class": 0,
+            "Milestone": 0
+        }
+    },
+    "Speed": {
+        "Walk": {
+            "Race": 25,
+            "Class": 0,
+            "Milestone": 0
+        },
+        "Fly": {
+            "Race": 0,
+            "Class": 0,
+            "Milestone": 0
+        },
+        "Swim": {
+            "Race": 0,
+            "Class": 0,
+            "Milestone": 0
+        },
+        "Climb": {
+            "Race": 0,
+            "Class": 0,
+            "Milestone": 0
+        },
+        "Burrow": {
+            "Race": 0,
+            "Class": 0,
+            "Milestone": 0
+        }
+    },
+    "Initiative": {
+        "Race": 0,
+        "Class": 0,
+        "Milestone": 0
+    },
+    "HP": {
+        "Temp": 0,
+        "Player": 34,
+        "Race": 0,
+        "Class": 0,
+        "Milestone": 0,
+        "Current": 34
+    },
+    "HD": {
+        "Val": 0,
+        "Current": 0,
+        "Max": 2
+    },
+    "Prof": {
+        "Armor": {
+            "Base": [],
+            "Race": [],
+            "Class": [
+                [
+                    "Light",
+                    "Medium",
+                    "Heavy",
+                    "Shield"
+                ]
+            ],
+            "Milestone": [],
+            "Background": []
+        },
+        "Weapon": {
+            "Base": [],
+            "Race": [],
+            "Class": [
+                [
+                    "Club",
+                    "Dagger",
+                    "Dart",
+                    "Handaxe",
+                    "Javelin",
+                    "Light_Hammer",
+                    "Mace",
+                    "Quarterstaff",
+                    "Sickle",
+                    "Spear",
+                    "Light_Crossbow",
+                    "Shortbow",
+                    "Sling",
+                    "Battle_axe",
+                    "Flail",
+                    "Glaive",
+                    "Great_axe",
+                    "Greatsword",
+                    "Halberd",
+                    "Lance",
+                    "Longsword",
+                    "Maul",
+                    "Morningstar",
+                    "Pike",
+                    "Rapier",
+                    "Scimitar",
+                    "Shortsword",
+                    "Trident",
+                    "War_Pick",
+                    "Warhammer",
+                    "Whip",
+                    "Blowgun",
+                    "Hand_Crossbow",
+                    "Heavy_Crossbow",
+                    "Long_bow",
+                    "Net"
+                ]
+            ],
+            "Milestone": [],
+            "Background": []
+        },
+        "Tool": {
+            "Base": [],
+            "Race": [],
+            "Class": [],
+            "Milestone": [],
+            "Background": []
+        },
+        "Lang": {
+            "Base": [],
+            "Race": [
+                [
+                    "Common",
+                    "Gnomish"
+                ]
+            ],
+            "Class": [],
+            "Milestone": [],
+            "Background": []
+        }
+    },
+    "Skill": {
+        "Acrobatics": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Animal Handling": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Arcana": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Athletics": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Deception": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "History": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Insight": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Intimidation": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Investigation": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Medicine": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                true,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Nature": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Perception": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Performance": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Persuasion": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Religion": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Sleight of Hand": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Stealth": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        },
+        "Survival": {
+            "Race": [
+                false,
+                false
+            ],
+            "Class": [
+                false,
+                false
+            ],
+            "Milestone": [
+                false,
+                false
+            ],
+            "Background": [
+                false,
+                false
+            ]
+        }
+    },
+    "Race": {
+        "Features": {
+            "Gnome_Cunning": {
+                "Tag": "Passive",
+                "Desc": [
+                    "You have advantage on all Intelligence, Wisdom, and Charisma saves against magic."
+                ]
+            }
+        }
+    },
+    "Class": {
+        "Features": {
+            "Second_Wind": {
+                "Tag": "Use",
+                "Desc": [
+                    "(Bonus Action) Regain 1d10 + 2 HP."
+                ],
+                "Use": [
+                    false
+                ],
+                "Recharge": [
+                    "Short",
+                    "Long"
+                ]
+            },
+            "Action_Surge": {
+                "Tag": "Use",
+                "Desc": [
+                    "(Free) Take one additional action on your turn."
+                ],
+                "Use": [
+                    false
+                ],
+                "Recharge": [
+                    "Short",
+                    "Long"
+                ]
+            },
+            "Fighting_Style": {
+                "Tag": "Select",
+                "Desc": [
+                    "When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll. The weapon must have the two-handed or versatile property for you to gain this benefit."
+                ],
+                "Select": [
+                    "Great Weapon Fighting"
+                ],
+                "Options": [
+                    "Archery",
+                    "Defense",
+                    "Dueling",
+                    "Great Weapon Fighting",
+                    "Protection",
+                    "Two Weapon Fighting",
+                    "Blind Fighting",
+                    "Interception",
+                    "Thrown Weapon Fighting",
+                    "Unarmed Fighting"
+                ]
+            }
+        },
+        "Skill": {
+            "Options": [
+                "Arcana",
+                "History",
+                "Insight",
+                "Investigation",
+                "Medicine",
+                "Religion"
+            ],
+            "Select": [
+                "Medicine",
+                ""
+            ]
+        }
+    },
+    "Caster": {
+        "Max_Spell_Level": null,
+        "Cantrips_Available": null,
+        "Cantrips_Known": null,
+        "Spells_Available": null,
+        "Spells_Known": null,
+        "Prepared_Type": null,
+        "Prepared_Available": null,
+        "Spells_Prepared": null,
+        "Toggle": false,
+        "Abil": null,
+        "Caster_List": null,
+        "Book": null,
+        "Prepared": null,
+        "Slot": null,
+        "DC": null,
+        "ATK": null
+    },
+    "Condition": {
+        "Blinded": false,
+        "Charmed": false,
+        "Deafened": false,
+        "Frightened": false,
+        "Grappled": false,
+        "Incapacitated": false,
+        "Invisible": false,
+        "Paralyzed": false,
+        "Petrified": false,
+        "Poisoned": false,
+        "Prone": false,
+        "Restrained": false,
+        "Stunned": false,
+        "Unconscious": false,
+        "Exhaustion": false
+    },
+    "Inventory": {
+        "Closet": {
+            "Armor": "",
+            "Hand_1": "",
+            "Hand_2": ""
+        },
+        "Backpack": {
+            "Club": [
+                "Weapon",
+                1
+            ],
+            "Quarterstaff": [
+                "Weapon",
+                1
+            ],
+            "Halberd_2": [
+                "Weapon",
+                1
+            ],
+            "Shield": [
+                "Armor",
+                1
+            ]
+        }
+    }
+}

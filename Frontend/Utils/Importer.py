@@ -1,0 +1,7 @@
+from Frontend.Sheet import pat_Sheet
+from Frontend.Race import pat_Race
+from Frontend.Class import pat_Class
+from Frontend.Caster import pat_Caster
+from Frontend.Armory.Bazaar import pat_Bazaar
+from Frontend.Armory.Closet import pat_Closet
+from Frontend.Armory.Backpack import pat_Backpack

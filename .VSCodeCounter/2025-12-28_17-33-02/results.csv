@@ -1,0 +1,30 @@
+"filename", "language", "Ini", "Python", "JSON", "comment", "blank", "total"
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Dist\db.json", "JSON", 0, 0, 776, 0, 0, 776
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Dist\item_file.json", "JSON", 0, 0, 596, 0, 47, 643
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Class.py", "Python", 0, 161, 0, 0, 46, 207
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\On_Start.py", "Python", 0, 377, 0, 58, 55, 490
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Sheet.py", "Python", 0, 116, 0, 17, 34, 167
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Utils\Importer.py", "Python", 0, 2, 0, 0, 0, 2
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handbook\Grimoir.py", "Python", 0, 6607, 0, 0, 4, 6611
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handbook\Rules.py", "Python", 0, 76, 0, 0, 15, 91
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handbook\data_files\Caster.py", "Python", 0, 119, 0, 0, 23, 142
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handbook\data_files\Classes_Reference.py", "Python", 0, 352, 0, 50, 111, 513
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handbook\data_files\Races.py", "Python", 0, 362, 0, 0, 64, 426
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Utils\Importer.py", "Python", 0, 3, 0, 0, 0, 3
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Utils\funcs.py", "Python", 0, 52, 0, 0, 10, 62
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\bCaster.py", "Python", 0, 69, 0, 0, 17, 86
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\bClass.py", "Python", 0, 497, 0, 5, 138, 640
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\bRace.py", "Python", 0, 116, 0, 0, 27, 143
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Main.py", "Python", 0, 33, 0, 0, 17, 50
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Manager\Database.py", "Python", 0, 503, 0, 3, 94, 600
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Manager\Database_Manager.py", "Python", 0, 264, 0, 39, 71, 374
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Manager\Item_Manager.py", "Python", 0, 51, 0, 0, 10, 61
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Manager\database_backup.py", "Python", 0, 271, 0, 0, 75, 346
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Utils\Pathing.py", "Python", 0, 4, 0, 0, 2, 6
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Utils\UI\c_Size.py", "Python", 0, 44, 0, 0, 11, 55
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Utils\UI\c_Tag.py", "Python", 0, 40, 0, 0, 10, 50
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Utils\UI\f_Utility.py", "Python", 0, 89, 0, 3, 21, 113
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Utils\color_reference.py", "Python", 0, 39, 0, 0, 9, 48
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Utils\config_save.ini", "Ini", 47, 0, 0, 0, 10, 57
+"c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\q.py", "Python", 0, 13, 0, 0, 4, 17
+"Total", "-", 47, 10260, 1372, 175, 925, 12779
