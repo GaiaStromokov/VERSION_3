@@ -196,28 +196,17 @@ class m_Inventory:
     def Closet_Clear(self, slot):
         setattr(self.Closet, slot, "")
     
-
     def Closet_Hand(self, slot, name, dh1, dh2):
-        def owned_count(): return self.Backpack[name] 
+        if slot == "Hand_1": self.Closet.Hand_1 = name
+        elif slot == "Hand_2": self.Closet.Hand_2 = name
 
-        if slot == "Hand_1":
-            if "Two-handed" in dh1.prop:
-                self.Closet.Hand_1 = name
-                self.Closet.Hand_2 = "Grip"
-            else:
-                self.Closet.Hand_1 = name
-                
-                if "Versatile" in dh1.prop:
-                    if self.Closet.Hand_2 == "":
-                        self.Closet.Hand_2 = "Grip"
-                else:
-                    if self.Closet.Hand_2 == "Grip":
-                        self.Closet.Hand_2 = ""
-        
-        elif slot == "Hand_2":
-            if "Two-handed" in dh2.prop or "Ranged" in dh2.cat: return
-            if "Two-handed" in dh1.prop: return
-            self.Closet.Hand_2 = name
+        if self.Closet.Hand_1 == name and "Two-handed" in dh1.prop:
+            self.Closet.Hand_2 = "Grip"
+            return
+        if self.Closet.Hand_2 == "Grip":
+            if self.Closet.Hand_1 != name or ("Two-handed" not in dh1.prop and "Versatile" not in dh1.prop): self.Closet.Hand_2 = ""
+        if "Versatile" in dh1.prop and self.Closet.Hand_2 == self.Closet.Hand_1: self.Closet.Hand_2 = "Grip"
+        if slot == "Hand_2" and "Two-handed" in dh1.prop: self.Closet.Hand_2 = ""
 
 
     def Closet_Armor(self, slot, name, data):

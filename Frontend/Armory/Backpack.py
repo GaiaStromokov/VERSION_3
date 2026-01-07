@@ -77,5 +77,5 @@ class pat_Backpack():
                 add_button(label=">", user_data=[id], callback=q.cbh.Backpack_Add_Item, small=True)
                 add_button(label="X", user_data=[id], callback=q.cbh.Backpack_Clear_Item, small=True)
 
-            add_text(weight, parent=Tag.backpack.cell("weight", idx))
-            add_text(cost, parent=Tag.backpack.cell("cost", idx))
+            add_text(f"{weight:.2f}", parent=Tag.backpack.cell("weight", idx))
+            add_text(f"{cost:.2f}", parent=Tag.backpack.cell("cost", idx))

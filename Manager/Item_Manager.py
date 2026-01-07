@@ -123,7 +123,7 @@ class Club(Weapon):
 
 class Dart(Weapon):
     base_name = "Dart"
-    cat = {"Simple", "Ranged", "Main"}
+    cat = {"Simple", "Ranged", "Main", "Off"}
     prop = {"Finesse", "Thrown"}
     dType = "Piercing"
     dMod = "DEX"
@@ -147,7 +147,7 @@ class Handaxe(Weapon):
 
 class Javelin(Weapon):
     base_name = "Javelin"
-    cat = {"Simple", "Melee", "Main"}
+    cat = {"Simple", "Melee", "Main", "Off"}
     prop = {"Thrown"}
     dType = "Piercing"
     dMod = "STR"
@@ -171,7 +171,7 @@ class Light_Hammer(Weapon):
 
 class Mace(Weapon):
     base_name = "Mace"
-    cat = {"Simple", "Melee", "Main"}
+    cat = {"Simple", "Melee", "Main", "Off"}
     prop = set()
     dType = "Bludgeoning"
     dMod = "STR"
@@ -183,7 +183,7 @@ class Mace(Weapon):
 
 class Quarterstaff(Weapon):
     base_name = "Quarterstaff"
-    cat = {"Simple", "Melee", "Main"}
+    cat = {"Simple", "Melee", "Main", "Off"}
     prop = {"Versatile"}
     dType = "Bludgeoning"
     dMod = "STR"
@@ -208,7 +208,7 @@ class Sickle(Weapon):
 
 class Spear(Weapon):
     base_name = "Spear"
-    cat = {"Simple", "Melee", "Main"}
+    cat = {"Simple", "Melee", "Main", "Off"}
     prop = {"Thrown", "Versatile"}
     dType = "Piercing"
     dMod = "STR"
@@ -245,7 +245,7 @@ class Shortbow(Weapon):
 
 class Sling(Weapon):
     base_name = "Sling"
-    cat = {"Simple", "Ranged", "Main"}
+    cat = {"Simple", "Ranged", "Main", "Off"}
     prop = {"Ammunition"}
     dType = "Bludgeoning"
     dMod = "DEX"
@@ -257,7 +257,7 @@ class Sling(Weapon):
 
 class Battle_axe(Weapon):
     base_name = "Battle_axe"
-    cat = {"Martial", "Melee", "Main"}
+    cat = {"Martial", "Melee", "Main", "Off"}
     prop = {"Versatile"}
     dType = "Slashing"
     dMod = "STR"
@@ -270,7 +270,7 @@ class Battle_axe(Weapon):
 
 class Flail(Weapon):
     base_name = "Flail"
-    cat = {"Martial", "Melee", "Main"}
+    cat = {"Martial", "Melee", "Main", "Off"}
     prop = set()
     dType = "Bludgeoning"
     dMod = "STR"
@@ -318,7 +318,7 @@ class Halberd(Weapon):
 
 class Longsword(Weapon):
     base_name = "Longsword"
-    cat = {"Martial", "Melee", "Main"}
+    cat = {"Martial", "Melee", "Main", "Off"}
     prop = {"Versatile"}
     dType = "Slashing"
     dMod = "STR"
@@ -343,7 +343,7 @@ class Maul(Weapon):
 
 class Morningstar(Weapon):
     base_name = "Morningstar"
-    cat = {"Martial", "Melee", "Main"}
+    cat = {"Martial", "Melee", "Main", "Off"}
     prop = set()
     dType = "Piercing"
     dMod = "STR"
@@ -367,7 +367,7 @@ class Pike(Weapon):
 
 class Rapier(Weapon):
     base_name = "Rapier"
-    cat = {"Martial", "Melee", "Main"}
+    cat = {"Martial", "Melee", "Main", "Off"}
     prop = {"Finesse"}
     dType = "Piercing"
     dMod = "STR"
@@ -403,7 +403,7 @@ class Shortsword(Weapon):
 
 class Trident(Weapon):
     base_name = "Trident"
-    cat = {"Martial", "Melee", "Main"}
+    cat = {"Martial", "Melee", "Main", "Off"}
     prop = {"Thrown", "Versatile"}
     dType = "Piercing"
     dMod = "STR"
@@ -416,7 +416,7 @@ class Trident(Weapon):
 
 class War_Pick(Weapon):
     base_name = "War_Pick"
-    cat = {"Martial", "Melee", "Main"}
+    cat = {"Martial", "Melee", "Main", "Off"}
     prop = set()
     dType = "Piercing"
     dMod = "STR"
@@ -428,7 +428,7 @@ class War_Pick(Weapon):
 
 class Warhammer(Weapon):
     base_name = "Warhammer"
-    cat = {"Martial", "Melee", "Main"}
+    cat = {"Martial", "Melee", "Main", "Off"}
     prop = {"Versatile"}
     dType = "Bludgeoning"
     dMod = "STR"
@@ -441,7 +441,7 @@ class Warhammer(Weapon):
 
 class Whip(Weapon):
     base_name = "Whip"
-    cat = {"Martial", "Melee", "Main"}
+    cat = {"Martial", "Melee", "Main", "Off"}
     prop = {"Finesse", "Reach"}
     dType = "Slashing"
     dMod = "STR"
@@ -453,7 +453,7 @@ class Whip(Weapon):
 
 class Blowgun(Weapon):
     base_name = "Blowgun"
-    cat = {"Martial", "Ranged", "Main"}
+    cat = {"Martial", "Ranged", "Main", "Off"}
     prop = {"Ammunition", "Loading"}
     dType = "Piercing"
     dMod = "DEX"
@@ -465,7 +465,7 @@ class Blowgun(Weapon):
 
 class Hand_Crossbow(Weapon):
     base_name = "Hand_Crossbow"
-    cat = {"Martial", "Ranged", "Main"}
+    cat = {"Martial", "Ranged", "Main", "Off"}
     prop = {"Ammunition", "Light", "Loading"}
     dType = "Piercing"
     dMod = "DEX"
@@ -498,10 +498,6 @@ class Long_bow(Weapon):
     Cost = 50
     Weight = 2
     lTier = [0, 1, 2, 3]
-
-
-
-
 
 class Padded(Armor):
     base_name = "Padded"

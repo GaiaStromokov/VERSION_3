@@ -53,7 +53,26 @@ class collect_dicts:
         })
         
         self.Icon_Loader = {"Figure": ["Figure"],"Armor": ["Armor"],"Arms": ["Arms"],"Body": ["Body"],"Face": ["Face"],"Hands": ["Hands"],"Head": ["Head"],"Hand_1": ["Hand_1"],"Hand_2": ["Hand_2"],"Ring": ["Ring_1", "Ring_2"],"Shoulders": ["Shoulders"],"Throat": ["Throat"],"Waist": ["Waist"],"Feet": ["Feet"]}
-
+        
+        self.Weapon_Prop = {
+            "Ammunition": ["AMM", "Requires ammo. One ammo used per attack. Half recoverable after battle."],
+            "Finesse": ["FIN", "Use either Strength or Dexterity modifier for attack and damage."],
+            "Heavy": ["HVY", "Small creatures have disadvantage due to weapon size."],
+            "Light": ["LGT", "Small and easy to handle."],
+            "Loading": ["LDG", "Can only fire one shot per action or reaction."],
+            "Range": ["RNG", "Has normal and long range. Attacks beyond normal range have disadvantage."],
+            "Reach": ["REH", "Extends melee attack range by 5 feet."],
+            "Thrown": ["TRN", "Can be thrown. Uses melee attack modifier."],
+            "Two-handed": ["THD", "Requires two hands to use."],
+            "Versatile": ["VSL", "Can be used one or two handed. Damage increases when used with two hands."],
+            "Lance": ["LAN", "Disadvantage on attack on targets within 5 ft.. Requires two hands when not mounted."],
+            "Net": ["NET", "A Large or smaller creature hit by a net is restrained until it is freed. A net has no effect on creatures that are formless, or creatures that are Huge or larger. When you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless of the number of attacks you can normally make."]
+        }
+        self.dType_Desc = {
+            "Piercing": "Puncturing and penetrating.",
+            "Slashing": "Cutting and severing.",
+            "Bludgeoning": "Blunt impact and concussive force."
+        }
 class collect_lists:
     def __init__(self, d):
         self.d = d

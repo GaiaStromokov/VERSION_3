@@ -1,9 +1,9 @@
 {
     "Core": {
         "Level": 6,
-        "Race": "Human",
+        "Race": "Empty",
         "Subrace": "",
-        "Class": "Empty",
+        "Class": "Fighter",
         "Subclass": "",
         "Background": "Empty"
     },
@@ -14,7 +14,7 @@
             "Milestone": 0
         },
         "DEX": {
-            "Base": 11,
+            "Base": 10,
             "Race": 0,
             "Milestone": 0
         },
@@ -63,7 +63,7 @@
     },
     "Speed": {
         "Walk": {
-            "Race": 30,
+            "Race": 0,
             "Class": 0,
             "Milestone": 0
         },
@@ -110,14 +110,56 @@
         "Armor": {
             "Base": [],
             "Race": [],
-            "Class": [],
+            "Class": [
+                [
+                    "Light",
+                    "Medium",
+                    "Heavy",
+                    "Shield"
+                ]
+            ],
             "Milestone": [],
             "Background": []
         },
         "Weapon": {
             "Base": [],
             "Race": [],
-            "Class": [],
+            "Class": [
+                [
+                    "Pike",
+                    "Mace",
+                    "Handaxe",
+                    "Dart",
+                    "Trident",
+                    "Glaive",
+                    "Halberd",
+                    "Scimitar",
+                    "Hand_Crossbow",
+                    "Heavy_Crossbow",
+                    "Light_Crossbow",
+                    "Great_axe",
+                    "Shortbow",
+                    "Whip",
+                    "Shortsword",
+                    "War_Pick",
+                    "Rapier",
+                    "Battle_axe",
+                    "Quarterstaff",
+                    "Warhammer",
+                    "Blowgun",
+                    "Light_Hammer",
+                    "Maul",
+                    "Flail",
+                    "Spear",
+                    "Longsword",
+                    "Javelin",
+                    "Club",
+                    "Morningstar",
+                    "Sling",
+                    "Sickle",
+                    "Long_bow"
+                ]
+            ],
             "Milestone": [],
             "Background": []
         },
@@ -130,11 +172,7 @@
         },
         "Lang": {
             "Base": [],
-            "Race": [
-                [
-                    "Common"
-                ]
-            ],
+            "Race": [],
             "Class": [],
             "Milestone": [],
             "Background": []
@@ -470,7 +508,61 @@
         "Features": {}
     },
     "Class": {
-        "Features": {},
+        "Features": {
+            "Second_Wind": {
+                "Tag": "Use",
+                "Desc": [
+                    "(Bonus Action) Regain 1d10 + 6 HP."
+                ],
+                "Use": [
+                    false
+                ],
+                "Recharge": [
+                    "Short",
+                    "Long"
+                ]
+            },
+            "Action_Surge": {
+                "Tag": "Use",
+                "Desc": [
+                    "(Free) Take one additional action on your turn."
+                ],
+                "Use": [
+                    false
+                ],
+                "Recharge": [
+                    "Short",
+                    "Long"
+                ]
+            },
+            "Fighting_Style": {
+                "Tag": "Select",
+                "Desc": [
+                    ""
+                ],
+                "Select": [
+                    ""
+                ],
+                "Options": [
+                    "Archery",
+                    "Defense",
+                    "Dueling",
+                    "Great Weapon Fighting",
+                    "Protection",
+                    "Two Weapon Fighting",
+                    "Blind Fighting",
+                    "Interception",
+                    "Thrown Weapon Fighting",
+                    "Unarmed Fighting"
+                ]
+            },
+            "Extra_Attack": {
+                "Tag": "Passive",
+                "Desc": [
+                    "You can attack 2 times whenever you take the Attack action."
+                ]
+            }
+        },
         "Skill": {
             "Options": [
                 "Arcana",
@@ -524,11 +616,11 @@
     "Inventory": {
         "Closet": {
             "Armor": "",
-            "Hand_1": "Quarterstaff",
-            "Hand_2": ""
+            "Hand_1": "Morningstar",
+            "Hand_2": "Grip"
         },
         "Backpack": {
-            "Quarterstaff": 1,
+            "Quarterstaff": 4,
             "Halberd_2": 1,
             "Shield": 1,
             "Rapier": 1,

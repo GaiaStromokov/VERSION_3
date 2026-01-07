@@ -83,7 +83,7 @@ class Populate:
         self.update("Bazaar", "Closet", "Backpack", "Actions")
 
     def Equip(self):
-        self.update("")
+        self.update("Closet", "Actions")
 
 class cb_Base:
     def __init__(self, parent):
@@ -131,14 +131,14 @@ class cb_Closet(cb_Base):
             dh2 = q.itm.get(self.db.Inventory.Closet.Hand_2)
             self.db.Inventory.Closet_Hand(slot, inp, dh1, dh2)
         if slot == "Armor": self.db.Inventory.Closet_(slot, inp, wdata)
-        # self.db.Inventory.Backpack_Clear_Item(item)
-        # self.pat.Inventory()
+        self.pat.Equip()
+
 
     @register_callback("Closet_Clear")
     def Closet_Clear(self, sender, inp, udata):
         slot = udata[0]
         self.db.Inventory.Closet_Clear(slot)
-        self.pat.Inventory()
+        self.pat.Equip()
 
 class cb_Rest(cb_Base):
     @register_callback("Rest")
@@ -329,7 +329,7 @@ class cb_Inventory(cb_Base):
     @register_callback("Backpack_Sub_Item")
     def Backpack_Sub_Item(self, sender, inp, udata):
         item = udata[0]
-        self.db.Inventory.Backpack_Add_Item(item)
+        self.db.Inventory.Backpack_Sub_Item(item)
         self.pat.Inventory()
 
     @register_callback("Backpack_Clear_Item")
