@@ -105,7 +105,10 @@ class def_Item(Item):
     base_name = "def_Item"
     lTier = [0]
 
-
+class Grip(Item):
+    base_name = "Grip"
+    lTier = [0]
+    
 class Club(Weapon):
     base_name = "Club"
     cat = {"Simple", "Melee", "Main", "Off"}

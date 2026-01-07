@@ -23,6 +23,7 @@ class Populate:
         self.Closet = pat_Closet()
         self.Backpack = pat_Backpack()
         self.Logger = pat_Logger()
+        self.Actions = pat_Actions()
 
         self._refresh_map = {
             "Sheet": self.S.All,
@@ -36,6 +37,7 @@ class Populate:
             "Bazaar": self.Bazaar.Refresh,
             "Closet": self.Closet.Refresh,
             "Backpack": self.Backpack.Refresh,
+            "Actions": self.Actions.Refresh,
         }
 
     @property
@@ -48,7 +50,7 @@ class Populate:
                 method()
 
     def fat(self):
-        self.update("Sheet", "Race", "Class", "Caster", "Bazaar", "Closet", "Backpack")
+        self.update("Sheet", "Race", "Class", "Caster", "Bazaar", "Closet", "Backpack", "Actions")
 
     def Startup(self):
         self.fat()
@@ -78,7 +80,10 @@ class Populate:
         self.update("Sheet")
     
     def Inventory(self):
-        self.update("Bazaar", "Closet", "Backpack")
+        self.update("Bazaar", "Closet", "Backpack", "Actions")
+
+    def Equip(self):
+        self.update("")
 
 class cb_Base:
     def __init__(self, parent):
@@ -117,15 +122,23 @@ class cb_Health(cb_Base):
         self.pat.update("HP")
 
 class cb_Closet(cb_Base):
-    @register_callback("Closet")
-    def Closet_Dispatch(self, sender, inp, udata):
-        pass
-    
-    def Clear(self):
-        pass
+    @register_callback("Closet_Mod")
+    def Closet_Mod(self, sender, inp, udata):
+        slot = udata[0]
+        wdata = q.itm.get(inp)
+        if slot == "Hand_1" or slot == "Hand_2": 
+            dh1 = q.itm.get(self.db.Inventory.Closet.Hand_1)
+            dh2 = q.itm.get(self.db.Inventory.Closet.Hand_2)
+            self.db.Inventory.Closet_Hand(slot, inp, dh1, dh2)
+        if slot == "Armor": self.db.Inventory.Closet_(slot, inp, wdata)
+        # self.db.Inventory.Backpack_Clear_Item(item)
+        # self.pat.Inventory()
 
-    def Modify(self):
-        pass
+    @register_callback("Closet_Clear")
+    def Closet_Clear(self, sender, inp, udata):
+        slot = udata[0]
+        self.db.Inventory.Closet_Clear(slot)
+        self.pat.Inventory()
 
 class cb_Rest(cb_Base):
     @register_callback("Rest")
@@ -325,23 +338,7 @@ class cb_Inventory(cb_Base):
         self.db.Inventory.Backpack_Clear_Item(item)
         self.pat.Inventory()
 
-    @register_callback("Closet_Mod")
-    def Closet_Mod(self, sender, inp, udata):
-        slot = udata[0]
-        wdata = q.itm.get(inp)
-        if slot == "Hand_1" or slot == "Hand_2": 
-            dh1 = q.itm.get(self.db.Inventory.Closet.Hand_1)
-            dh2 = q.itm.get(self.db.Inventory.Closet.Hand_2)
-            self.db.Inventory.Closet_Hand(slot, inp, dh1, dh2)
-        if slot == "Armor": self.db.Inventory.Closet_(slot, inp, wdata)
-        # self.db.Inventory.Backpack_Clear_Item(item)
-        # self.pat.Inventory()
 
-    @register_callback("Closet_Clear")
-    def Closet_Clear(self, sender, inp, udata):
-        slot = udata[0]
-        self.db.Inventory.Closet_Clear(slot)
-        self.pat.Inventory()
 
         
 class Validate:
