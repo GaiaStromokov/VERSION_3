@@ -148,7 +148,7 @@ class Fighter(tClass):
         super().__init__(mgr)
         self.db.HD.Sit("HD", 10)
         self.db.Prof.Armor.Sit("Class", ["Light", "Medium", "Heavy", "Shield"])
-        self.db.Prof.Weapon.Sit("Class", q.w.BAW)
+        self.db.Prof.Weapon.Sit("Class", q.itm.Search([0], ["Weapon"]))
         self.Refresh_Skill(["Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"], 2)
         self.Feature_List = [FGT_BAS_Second_Wind, FGT_BAS_Action_Surge, FGT_BAS_Fighting_Style, FGT_BAS_Extra_Attack, FGT_BAS_Indomitable]
 
@@ -421,7 +421,7 @@ class Wizard(tClass):
     def __init__(self, mgr):
         super().__init__(mgr)
         self.db.HD.Sit("HD", 6)
-        self.db.Prof.Weapon.Sit("Class", ["Dagger", "Dart", "sling", "Quarterstaff", "Light_Crossbow"])
+        self.db.Prof.Weapon.Sit("Class", ["Dagger", "Dart", "Sling", "Quarterstaff", "Light_Crossbow"])
         self.Refresh_Skill(["Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"], 2)
         self.Feature_List = [WIZ_BAS_Spellcasting, WIZ_BAS_Arcane_Recovery, WIZ_BAS_Spell_Mastery, WIZ_BAS_Signature_Spell]
 

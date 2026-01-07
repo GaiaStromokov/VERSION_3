@@ -11,6 +11,6 @@ Coler = Coler()
 sz = Sizing()
 
 
-dbm = None
-cbh = None
-w = None
+dbm = None # Database Manager
+cbh = None # Callback Handler
+itm = None # Item Manager

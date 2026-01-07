@@ -252,8 +252,7 @@ def c_Prof():
         with group(horizontal=True):
             add_button(label="Tools", width=btn_w, tag=tt)
             add_button(label="Languages", width=btn_w, tag=tl)
-
-    h_Prof(tw, {k: q.w.filter(Slot="Weapon", Cat=k, Tier=0) for k in ["Simple", "Martial"]})
+    h_Prof(tw, {k: q.itm.Search([0], ["Weapon", k]) for k in ["Simple", "Martial"]})
     h_Prof(ta, {"Armor": Rules.l.Armor})
     h_Prof(tt, {"Artisan": Rules.l.Job, "Gaming": Rules.l.Game, "Musical": Rules.l.Music})
     h_Prof(tl, {"Languages": Rules.l.Lang})
@@ -425,9 +424,9 @@ def c_Inventory_Closet():
                 with group(horizontal=False):
                     for slot in left_slots:
                         with group(horizontal=True):
-                            add_image_button(Tag.closet.icon(slot), callback=q.cbh, user_data=["Closet", slot, "Clear"], tag=Tag.closet.img(slot))
+                            add_image_button(Tag.closet.icon(slot), user_data=[slot], callback=q.cbh.Closet_Clear, tag=Tag.closet.img(slot))
                             with child_window(auto_resize_x=True, auto_resize_y=True, border=True, no_scrollbar=True):
-                                add_combo(width=btn_w, no_arrow_button=True, user_data=["Closet", slot, "Modify"], callback=q.cbh, tag=Tag.closet.select(slot))
+                                add_combo(width=btn_w, no_arrow_button=True, user_data=[slot], callback=q.cbh.Closet_Mod, tag=Tag.closet.select(slot))
                 
                 # Center Figure
                 add_image(Tag.closet.icon.figure())
@@ -437,8 +436,8 @@ def c_Inventory_Closet():
                     for slot in right_slots:
                         with group(horizontal=True):
                             with child_window(auto_resize_x=True, auto_resize_y=True, border=True, no_scrollbar=True):
-                                add_combo(width=btn_w, no_arrow_button=True, user_data=["Closet", slot, "Modify"], callback=q.cbh, tag=Tag.closet.select(slot))
-                            add_image_button(Tag.closet.icon(slot), callback=q.cbh, user_data=["Closet", slot, "Clear"], tag=Tag.closet.img(slot))
+                                add_combo(width=btn_w, no_arrow_button=True, user_data=[slot], callback=q.cbh.Closet_Mod, tag=Tag.closet.select(slot))
+                            add_image_button(Tag.closet.icon(slot), user_data=[slot], callback=q.cbh.Closet_Clear, tag=Tag.closet.img(slot))
 
 def c_Inventory_Backpack(): 
     with group(parent=Tag.backpack.window()):

@@ -180,9 +180,47 @@ class m_Inventory:
         self.Closet = s_Closet(db, data["Closet"])
         self.Backpack = data["Backpack"]
     
-    def Backpack_Add_Item(self, cat, item):
-        if item in self.Backpack.keys(): self.Backpack[item][1] += 1
-        else: self.Backpack[item] = [cat, 1]
+    def Bazaar_Add_Item(self, cat, item):
+        if item in self.Backpack.keys(): self.Backpack[item] += 1
+        else: self.Backpack[item] = 1
+
+    def Backpack_Add_Item(self, item):
+        self.Backpack[item] += 1
+    def Backpack_Sub_Item(self, item):
+        self.Backpack[item] -= 1
+        if self.Backpack[item] <= 0: del self.Backpack[item]
+    def Backpack_Clear_Item(self, item):
+        del self.Backpack[item]
+    
+    
+    def Closet_Clear(self, slot):
+        setattr(self.Closet, slot, "")
+    
+    def Closet_Hand(self, slot, name, dh1, dh2):
+        def owned_count(): return self.Backpack[name] 
+        
+        h1 = self.Closet.Hand_1
+        h2 = self.Closet.Hand_2
+        
+        if slot == "Hand_1":
+            if "Two-handed" in dh1.prop:
+                self.Closet.Hand_1, self.Closet.Hand_2 = name, ""
+                return
+            
+            if h2 == name:
+                if "Versatile" in dh1.prop or owned_count() > 1: self.Closet.Hand_1 = name
+            else: self.Closet.Hand_1 = name
+        
+        elif slot == "Hand_2":
+            if "Two-handed" in dh1.prop: return
+
+            if h1 == name:
+                if "Versatile" in dh2.prop or owned_count() > 1: self.Closet.Hand_2 = name
+            else: self.Closet.Hand_2 = name
+
+
+    def Closet_Armor(self, slot, name, data):
+        pass 
 
     def to_dict(self):
         return {

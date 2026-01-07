@@ -5,9 +5,13 @@ Tag = q.Tag
 Rules = q.Rules
 Coler = q.Coler
 sz = q.Sizing
-
 dict_struct = {
-    "Weapon": [["Simple", "Melee"], ["Simple", "Ranged"], ["Martial", "Melee"], ["Martial", "Ranged"]],
+    "Weapon": [["Weapon", "Simple", "Melee"], ["Weapon", "Simple", "Ranged"], ["Weapon", "Martial", "Melee"], ["Weapon", "Martial", "Ranged"]],
+    "Armor": [["Armor", "Light"], ["Armor", "Medium"], ["Armor", "Heavy"], ["Armor", "Shield"]]
+}
+
+struct_list = {
+    "Weapon": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
     "Armor": ["Light", "Medium", "Heavy", "Shield"]
 }
 
@@ -15,33 +19,30 @@ class pat_Bazaar:
     def __init__(self):
         pass
 
-    @property
-    def w(self):
-        return q.w
-    def create_bazaar_button(self, item, category_type, parent):
-        button_tag = Tag.bazaar.button(item.id)
-        tooltip_tag = Tag.bazaar.tooltip(item.id)
-        add_button(label=item.base_name, width=sz.Item.w, user_data=[category_type, item.id], callback=q.cbh.Bazaar_Add_Item, tag=button_tag, parent=parent)
+
+
+    def create_bazaar_button(self, iid, parent, rank):
+        label = iid.rsplit('_', 1)[0] if rank > 0 else iid
+        
+        button_tag = Tag.bazaar.button(iid)
+        tooltip_tag = Tag.bazaar.tooltip(iid)
+        
+        add_button(label=label, width=sz.Item.w, user_data=[iid], callback=q.cbh.Bazaar_Add_Item, tag=button_tag, parent=parent)
         with tooltip(button_tag, tag=tooltip_tag):
-            item_detail_handler(item.id)
+            item_detail_handler(iid)
 
-    def get_items_for_category(self, rank, slot, category_data):
-        if isinstance(category_data, list):
-            items = self.w.search(Tier=rank, Slot=slot, Cat=category_data)
-            label = f"{category_data[0]} {category_data[1]}"
-        else:
-            items = self.w.search(Tier=rank, Slot=slot, Cat=category_data)
-            label = category_data
+    def get_items_for_category(self, rank, cat_list):
+        items = q.itm.Search([rank], cat_list)
+        items.sort()
+        return items
 
-        items.sort(key=lambda x: x.id)
-        return label, items
-
-    def rebuild_category(self, Type, Category, Rarity, t_Parent):
+    def rebuild_category(self, categories, labels, Rarity, t_Parent):
         icl(t_Parent)
 
         with group(parent=t_Parent):
-            for cData in Category:
-                label, items = self.get_items_for_category(Rarity, Type, cData)
+            for cat_list, label in zip(categories, labels):
+                items = self.get_items_for_category(Rarity, cat_list)
+                
                 if not items:
                     continue
 
@@ -50,11 +51,17 @@ class pat_Bazaar:
                     with group(horizontal=True):
                         h_group = last_item() 
                         chunk = items[i:i+4]
-                        for item in chunk: self.create_bazaar_button(item, Type, parent=h_group)
+                        for iid in chunk: 
+                            self.create_bazaar_button(iid, h_group, Rarity)
 
     def Refresh(self):
-        for Type, Category in dict_struct.items():
-            for rarity in range(5):
+        for Type in dict_struct.keys():
+            cats = dict_struct[Type]
+            labels = struct_list[Type]
+
+            for rarity in [0,1,2,3]:
                 Rank = Rules.g_Item_Rarity(rarity) 
                 t_Parent = Tag.bazaar.window(Type, Rank)
-                if does_item_exist(t_Parent): self.rebuild_category(Type, Category, rarity, t_Parent)
+                
+                if does_item_exist(t_Parent): 
+                    self.rebuild_category(cats, labels, rarity, t_Parent)

@@ -430,7 +430,7 @@ class ELF_DRK_Drow_Magic(tFeature):
 
     def Run(self):
         if not self.allowed(1): return False
-        self.Tag = "Use"
+        self.Tag = "Spell"
         self.Desc = ["Gain Magic"]
         self.Set()
 

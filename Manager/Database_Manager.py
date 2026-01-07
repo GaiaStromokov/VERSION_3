@@ -4,7 +4,7 @@ from colorist import green, red
 import inspect
 import re
 from Handler.Utils.Importer import bRace, bClass, bCaster 
-from Frontend.Utils.Importer import pat_Sheet, pat_Race, pat_Class, pat_Caster, pat_Bazaar, pat_Closet, pat_Backpack
+from Frontend.Utils.Importer import pat_Sheet, pat_Race, pat_Class, pat_Caster, pat_Bazaar, pat_Closet, pat_Backpack, pat_Logger, pat_Actions
 
 def register_callback(key):
     def wrapper(func):
@@ -22,6 +22,7 @@ class Populate:
         self.Bazaar = pat_Bazaar()
         self.Closet = pat_Closet()
         self.Backpack = pat_Backpack()
+        self.Logger = pat_Logger()
 
         self._refresh_map = {
             "Sheet": self.S.All,
@@ -303,8 +304,45 @@ class cb_Inventory(cb_Base):
     @register_callback("Bazaar_Add_Item")
     def Bazaar_Add_Item(self, sender, inp, udata):
         cat, item = udata
-        self.db.Inventory.Backpack_Add_Item(cat, item)
+        self.db.Inventory.Bazaar_Add_Item(cat, item)
         self.pat.Inventory()
+
+    @register_callback("Backpack_Add_Item")
+    def Backpack_Add_Item(self, sender, inp, udata):
+        item = udata[0]
+        self.db.Inventory.Backpack_Add_Item(item)
+        self.pat.Inventory()
+
+    @register_callback("Backpack_Sub_Item")
+    def Backpack_Sub_Item(self, sender, inp, udata):
+        item = udata[0]
+        self.db.Inventory.Backpack_Add_Item(item)
+        self.pat.Inventory()
+
+    @register_callback("Backpack_Clear_Item")
+    def Backpack_Clear_Item(self, sender, inp, udata):
+        item = udata[0]
+        self.db.Inventory.Backpack_Clear_Item(item)
+        self.pat.Inventory()
+
+    @register_callback("Closet_Mod")
+    def Closet_Mod(self, sender, inp, udata):
+        slot = udata[0]
+        wdata = q.itm.get(inp)
+        if slot == "Hand_1" or slot == "Hand_2": 
+            dh1 = q.itm.get(self.db.Inventory.Closet.Hand_1)
+            dh2 = q.itm.get(self.db.Inventory.Closet.Hand_2)
+            self.db.Inventory.Closet_Hand(slot, inp, dh1, dh2)
+        if slot == "Armor": self.db.Inventory.Closet_(slot, inp, wdata)
+        # self.db.Inventory.Backpack_Clear_Item(item)
+        # self.pat.Inventory()
+
+    @register_callback("Closet_Clear")
+    def Closet_Clear(self, sender, inp, udata):
+        slot = udata[0]
+        self.db.Inventory.Closet_Clear(slot)
+        self.pat.Inventory()
+
         
 class Validate:
     def __init__(self, parent):
@@ -403,5 +441,5 @@ class DBM:
         if not callable(func):
             red(f"[DBM] Unknown/uncallable key: {key}")
             return
-        print(f"Sit: key-{key}, sender-{sender}, data-{data}, params-{params}")
+        self.populate.Logger.Log(f"Sit: key-{key}, sender-{sender}, data-{data}, params-{params}")
         func(sender, data, params)

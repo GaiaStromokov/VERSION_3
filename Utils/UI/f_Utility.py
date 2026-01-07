@@ -27,68 +27,60 @@ def icl(tag):
 
 
 def item_detail_handler(item_id):
-    data = q.w.get(item_id)
+    data = q.itm.get(item_id)
     if not data:
         return
 
+    lcat = ["Weapon", "Armor"]
     detail_functions = {
         "Weapon": item_detail_weapon,
         "Armor": item_detail_armor,
     }
-
-    if func := detail_functions.get(data.Slot):
-        func(data)
-
+    for cat in lcat:
+        if cat in data.cat:
+            detail_functions[cat](data)
+            return
+        
 def item_detail_weapon(data):
     with group(horizontal=True):
-        if data.Reach:
-            add_text("Reach", color=Coler.Header.G)
-            add_text(f"{data.Reach} ft", color=Coler.Text)
-        if data.Range:
-            add_text("Range", color=Coler.Header.G)
-            add_text(f"{data.Range} ft", color=Coler.Text)
+        add_text("Range", color=Coler.Header.G)
+        add_text(data.Range, color=Coler.Text)
 
     with group(horizontal=True):
-        Roll = data.Damage["Roll"]
-        Hit = data.Damage["Hit"]
-        Damage = data.Damage["Dam"]
         add_text("Damage", color=Coler.Header.G)
-        add_text(f"{Hit:+} to hit, {Roll} {Damage:+} Damage", color=Coler.Header.HP)
+        add_text(f"{data.Hit:+} to hit, {data.Roll} {data.Dam:+} Damage", color=Coler.Header.HP)
 
     with group(horizontal=True):
-        if data.Prop:
-            add_text("Prop", color=Coler.Header.G)
-            for prop in data.Prop:
-                add_text(f"{prop}", color=Coler.Text)
-        
+        add_text("Prop", color=Coler.Header.G)
+        for prop in data.prop: add_text(prop, color=Coler.Text)
+
         add_text("Rarity", color=Coler.Header.G)
-        add_text(Rules.g_Item_Rarity(data.Tier), color=Coler.Text)
-        
+        add_text(Rules.g_Item_Rarity(data.tier), color=Coler.Text)
+
         add_text("Weight", color=Coler.Header.G)
-        add_text(data.Weight, color=Coler.Text)
-        
+        add_text(data.weight, color=Coler.Text)
+
         add_text("Cost", color=Coler.Header.G)
-        add_text(data.Cost, color=Coler.Item.M)
+        add_text(data.cost, color=Coler.Item.M)
+
 
 def item_detail_armor(data):
     with group(horizontal=True):
         add_text("AC", color=Coler.Header.G)
         add_text(data.AC, color=Coler.Text)
-        
-        if data.Prop:
-            add_text("Prop", color=Coler.Header.G)
-            for prop in data.Prop:
-                add_text(f"{prop}", color=Coler.Text)
+
+        add_text("Prop", color=Coler.Header.G)
+        for prop in data.prop: add_text(prop, color=Coler.Text)
 
         add_text("Rarity", color=Coler.Header.G)
-        add_text(Rules.g_Item_Rarity(data.Tier), color=Coler.Text)
-        
+        add_text(Rules.g_Item_Rarity(data.tier), color=Coler.Text)
+
         add_text("Weight", color=Coler.Header.G)
-        add_text(data.Weight, color=Coler.Text)
-        
+        add_text(data.weight, color=Coler.Text)
+
         add_text("Cost", color=Coler.Header.G)
-        add_text(data.Cost, color=Coler.Item.M)
-        
+        add_text(data.cost, color=Coler.Item.M)
+
 def spell_detail(spell):
     try: data = Grimoir[spell]
     except (KeyError, AttributeError, TypeError): return 

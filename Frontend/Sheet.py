@@ -107,16 +107,15 @@ class pat_Sheet:
         d_A = data.Armor.Val
         d_T = data.Tool.Val
         d_L = data.Lang.Val
-        for i in q.w.BSW:
+        for i in q.itm.Search([0], ["Simple"]):
             val = i in d_W
             configure_item(Tag.prof.toggle("Simple", i), default_value=val)
             configure_item(Tag.prof.text("Simple", i), color=Coler.Toggle(val))
 
-        for i in q.w.BMW:
+        for i in q.itm.Search([0], ["Martial"]):
             val = i in d_W
             configure_item(Tag.prof.toggle("Martial", i), default_value=val)
             configure_item(Tag.prof.text("Martial", i), color=Coler.Toggle(val))
-        
         for i in Rules.l.Armor:
             val = i in d_A
             configure_item(Tag.prof.toggle("Armor", i), default_value=val)

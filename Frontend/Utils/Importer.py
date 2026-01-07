@@ -5,3 +5,5 @@ from Frontend.Caster import pat_Caster
 from Frontend.Armory.Bazaar import pat_Bazaar
 from Frontend.Armory.Closet import pat_Closet
 from Frontend.Armory.Backpack import pat_Backpack
+from Frontend.Logger import pat_Logger
+from Frontend.Actions import pat_Actions
