@@ -320,8 +320,14 @@ def c_Block():
                     ####
             with tab(label="Actions", tag=Tag.block.tabbar.Actions()):
                 with child_window(auto_resize_x=True, auto_resize_y=True, border=True):
-                    with child_window(auto_resize_y=True, width=w2, border=True, tag=Tag.block.actions.window()):
+                    with child_window(auto_resize_y=True, width=w2, border=True, tag=Tag.block.actions.equip.window()):
                         add_separator(label="Weapons")
+                    with child_window(auto_resize_y=True, width=w2, border=True, tag=Tag.block.actions.actions.window()):
+                        add_separator(label="Actions")
+                    with child_window(auto_resize_y=True, width=w2, border=True, tag=Tag.block.actions.bonus.window()):
+                        add_separator(label="Bonus Actions")
+                    with child_window(auto_resize_y=True, width=w2, border=True, tag=Tag.block.actions.reaction.window()):
+                        add_separator(label="Reactions")
             with tab(label="Spells", tag=Tag.block.tabbar.Spells()):
                 with child_window(auto_resize_x=True, auto_resize_y=True, border=True):
                     with child_window(auto_resize_y=True, width=w2, border=True, tag=Tag.block.Spells.window()):
@@ -332,7 +338,7 @@ def c_Block():
                         pass
 
 def c_Block_Actions(): 
-    with group(parent=Tag.block.actions.window()):
+    with group(parent=Tag.block.actions.equip.window()):
         with table(header_row=True, row_background=False, borders_innerH=True, borders_outerH=True, borders_innerV=True, resizable=True,borders_outerV=True):
             add_table_column(label="Weapon", width_stretch=True, init_width_or_weight=0)
             add_table_column(label="Range", width_stretch=True, init_width_or_weight=0)
@@ -343,7 +349,10 @@ def c_Block_Actions():
             for i in range(2):
                 with table_row():
                     for j in Rules.l.Weapon_Atr:
-                        add_table_cell(tag=Tag.block.actions.cell(j,i))
+                        add_table_cell(tag=Tag.block.actions.equip.cell(j,i))
+        add_separator()
+
+        
 
 def c_Block_Spells(): 
     w1 = sz.Block.w - 52

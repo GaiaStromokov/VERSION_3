@@ -106,6 +106,24 @@ class pat_Class:
             for i, Desc in enumerate(l_Desc):
                 add_text(Desc, color=Coler.Text, wrap=sz.Wrap, tag=tl_Desc[i])
 
+    def gen_Toggle(self, name, t, data):
+        l_Desc = data["Desc"]
+        Toggle = data["Toggle"][0]
+        t_header = Tag.block.c.feature.header(t)
+        tl_Desc = [Tag.block.c.feature.text(t, f"{i}") for i in range(len(l_Desc))]
+        l_Toggle = Tag.block.c.feature.toggle(t, 0)
+        
+        
+
+        with group(parent=self.parent):
+            with group(horizontal=True):
+                add_text(name, color=Coler.Header.G, tag=t_header)
+                add_checkbox(default_value=Toggle, enabled=True, user_data=[t], callback=q.cbh.Class_F_Toggle, tag=l_Toggle)
+
+            for i, Desc in enumerate(l_Desc):
+                add_text(Desc, color=Coler.Text, wrap=sz.Wrap, tag=tl_Desc[i])
+                
+                
     def gen_Spell_Mastery(self, name, t, data):
         t_header = Tag.block.c.feature.header(t)
         t_select = [Tag.block.c.feature.select.A(t), Tag.block.c.feature.select.B(t)]

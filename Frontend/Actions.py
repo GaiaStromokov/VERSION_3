@@ -17,12 +17,27 @@ class pat_Actions:
         return [d1, d2]
 
     def Refresh(self):
-        self.Weapon()
+        self.Equip()
 
-    def Weapon(self):
+
+
+
+    def Free_Action(self):
+        pass
+
+    def Bonus_Action(self):
+        pass
+    
+    def Reaction(self):
+        pass
+    
+    def Active_Action(self):
+        pass
+    
+    def Equip(self):
         for j in Rules.l.Weapon_Atr:
-            delete_item(Tag.block.actions.cell(j,0), children_only=True)
-            delete_item(Tag.block.actions.cell(j,1), children_only=True)
+            delete_item(Tag.block.actions.equip.cell(j,0), children_only=True)
+            delete_item(Tag.block.actions.equip.cell(j,1), children_only=True)
 
         hands = self.Hands
         
@@ -44,30 +59,30 @@ class pat_Actions:
         name = cdata.base_name
         if cdata.tier != 0: name = f"{name} +{cdata.tier}"
 
-        with group(parent=Tag.block.actions.cell("Name", idx)): add_text(name)
-        with group(parent=Tag.block.actions.cell("Range", idx)): add_text(cdata.Range)
-        with group(parent=Tag.block.actions.cell("Hit", idx)):
+        with group(parent=Tag.block.actions.equip.cell("Name", idx)): add_text(name)
+        with group(parent=Tag.block.actions.equip.cell("Range", idx)): add_text(cdata.Range)
+        with group(parent=Tag.block.actions.equip.cell("Hit", idx)):
             with group(horizontal=True):
                 add_text(f"{cdata.Hit:+}")
 
-        with group(parent=Tag.block.actions.cell("Damage", idx)):
+        with group(parent=Tag.block.actions.equip.cell("Damage", idx)):
             with group(horizontal=True):
                 add_text(f"{Roll} {cdata.Dam:+}")
 
-        with group(parent=Tag.block.actions.cell("Type", idx)):
-            t_text  = Tag.block.actions.text("Type", idx)
+        with group(parent=Tag.block.actions.equip.cell("Type", idx)):
+            t_text  = Tag.block.actions.equip.text("Type", idx)
             t_tooltip = Tag.block.actions.tooltip("Type", idx)
-            add_text(cdata.dType, tag=Tag.block.actions.text("Type", idx))
+            add_text(cdata.dType, tag=Tag.block.actions.equip.text("Type", idx))
             idel(t_tooltip)
             with tooltip(t_text, tag=t_tooltip):
                 if cdata.dType:
                     add_text(Rules.d.dType_Desc[cdata.dType], color=Coler.Header.G)
 
-        with group(parent=Tag.block.actions.cell("Notes", idx)):
+        with group(parent=Tag.block.actions.equip.cell("Notes", idx)):
             with group(horizontal=True):
                 for prop in cdata.prop:
-                    t_text = Tag.block.actions.text("wprop", prop, idx)
-                    t_tooltip = Tag.block.actions.tooltip("wprop", prop, idx)
+                    t_text = Tag.block.actions.equip.text("wprop", prop, idx)
+                    t_tooltip = Tag.block.actions.equip.tooltip("wprop", prop, idx)
                     rules = Rules.d.Weapon_Prop[prop]
                     add_text(rules[0], tag=t_text)
                     idel(t_tooltip)
@@ -76,10 +91,10 @@ class pat_Actions:
                         add_text(rules[1], wrap=240, color=Coler.Header.B)
 
     def table_shield(self, cdata, idx):
-        with group(parent=Tag.block.actions.cell("Name", idx)):add_text(cdata.id)
-        with group(parent=Tag.block.actions.cell("Range", idx)): add_text("")
-        with group(parent=Tag.block.actions.cell("Hit", idx)): add_text("")
-        with group(parent=Tag.block.actions.cell("Damage", idx)): add_text("")
-        with group(parent=Tag.block.actions.cell("Type", idx)): add_text("")
-        with group(parent=Tag.block.actions.cell("Notes", idx)): add_text(f"AC: {cdata.AC}")
+        with group(parent=Tag.block.actions.equip.cell("Name", idx)):add_text(cdata.id)
+        with group(parent=Tag.block.actions.equip.cell("Range", idx)): add_text("")
+        with group(parent=Tag.block.actions.equip.cell("Hit", idx)): add_text("")
+        with group(parent=Tag.block.actions.equip.cell("Damage", idx)): add_text("")
+        with group(parent=Tag.block.actions.equip.cell("Type", idx)): add_text("")
+        with group(parent=Tag.block.actions.equip.cell("Notes", idx)): add_text(f"AC: {cdata.AC}")
 

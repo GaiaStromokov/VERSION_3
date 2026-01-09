@@ -49,7 +49,9 @@ class collect_dicts:
         self.Class = Box({
             "Empty": ["Empty"],
             "Fighter": ["Champion", "Battle Master", "Eldritch_Knight", "Samuri"],
-            "Wizard": ["Abjuration", "Conjuration"] 
+            "Wizard": ["Abjuration", "Conjuration"],
+            "Barbarian": ["Berserker", "Totem_Warrior"],
+            "Monk": ["Open_Hand"]
         })
         
         self.Icon_Loader = {"Figure": ["Figure"],"Armor": ["Armor"],"Arms": ["Arms"],"Body": ["Body"],"Face": ["Face"],"Hands": ["Hands"],"Head": ["Head"],"Hand_1": ["Hand_1"],"Hand_2": ["Hand_2"],"Ring": ["Ring_1", "Ring_2"],"Shoulders": ["Shoulders"],"Throat": ["Throat"],"Waist": ["Waist"],"Feet": ["Feet"]}

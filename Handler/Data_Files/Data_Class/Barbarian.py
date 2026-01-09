@@ -2,8 +2,6 @@ import q, re, math
 from Handler.Utils.funcs import *
 from Handler.bClass import tClass, tFeature
 
-
-
 class Barbarian(tClass):
     def __init__(self, mgr):
         super().__init__(mgr)
@@ -47,8 +45,7 @@ class Barbarian_Totem_Warrior(Barbarian):
 class BRB_BAS_Rage(tFeature):
     def Run(self):
         if not self.allowed(1): return False
-        self.Tag = "Use"
-        self.Recharge = "Long"
+        self.Recharge = ["Long"]
         
         dmg_bonus = [0,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4][self.L]
         self.Desc = [
@@ -58,22 +55,28 @@ class BRB_BAS_Rage(tFeature):
             "Resistance to Bludgeoning, Piercing, Slashing."
         ]
         
-        self.max_uses = [2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,6,6,6,99][self.L - 1]
-        if self.max_uses == 99:
-            self.Desc[0] = "(Bonus Action) Enter Rage (Unlimited)."
+        update_data = {"Recharge": self.Recharge}
 
-        self.Use = [False] * self.max_uses if self.max_uses < 99 else []
+        if self.L == 20:
+            self.Tag = "Toggle"
+            self.Desc[0] = "(Bonus Action) Enter Rage (Unlimited)."
+            self.Toggle = [False]
+            update_data["Toggle"] = self.Toggle
+        else:
+            self.Tag = "Use"
+            self.max_uses = [0,2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,6,6,6][self.L]
+            self.Use = [False] * self.max_uses
+            update_data["Use"] = self.Use
         
-        if self.L >= 15:
-            self.Desc.append("Persistent Rage: Rage only ends early if you fall unconscious or choose to end it.")
-        elif self.L >= 11:
-            self.Desc.append("Relentless Rage: DC 10 CON save to drop to 1 HP instead of 0 while raging.")
+        if self.L >= 15: self.Desc.append("Persistent Rage: Rage only ends early if you fall unconscious or choose to end it.")
+        elif self.L >= 11: self.Desc.append("Relentless Rage: DC 10 CON save to drop to 1 HP instead of 0 while raging.")
 
         self.Set()
-        self.Update({"Use": self.Use, "Recharge": self.Recharge})
+        self.Update(update_data)
 
     def Refresh(self):
-        if self.max_uses == 99: return
+        if self.L == 20: return
+        self.max_uses = [0,2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,6,6,6][self.L]
         past_use = self.get_past("Use")
         self.Use = (past_use + [False] * self.max_uses)[:self.max_uses]
         self.Update({"Use": self.Use})
@@ -82,7 +85,7 @@ class BRB_BAS_Unarmored_Defense(tFeature):
     def Run(self):
         if not self.allowed(1): return False
         self.Tag = "Passive"
-        self.Desc = ["While not wearing armor, AC = 10 + DEX mod + CON mod. You can use a shield."]
+        self.Desc = [f"While not wearing armor, AC = {10 + self.Atr.DEX.Mod + self.Atr.CON.Mod}. You can use a shield."]
         self.Set()
 
 class BRB_BAS_Reckless_Attack(tFeature):
@@ -124,9 +127,7 @@ class BRB_BAS_Brutal_Critical(tFeature):
     def Run(self):
         if not self.allowed(9): return False
         self.Tag = "Passive"
-        dice = 1
-        if self.L >= 13: dice = 2
-        if self.L >= 17: dice = 3
+        dice = [0,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,3][self.L]
         self.Desc = [f"Roll {dice} additional weapon damage die on a critical hit."]
         self.Set()
 
@@ -280,8 +281,6 @@ class BRB_TOT_Totemic_Attunement(tFeature):
         
         self.Desc = [desc_map.get(self.Select[0], "")]
         self.Update({"Select": self.Select, "Desc": self.Desc})
-
-
 
 Barbarian_Catalog = {
     "Base": Barbarian,

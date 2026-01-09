@@ -227,6 +227,13 @@ class cb_Class(cb_Base):
         self.dbm.Class.Refresh()
         self.pat.Class()
 
+    @register_callback("Class_F_Toggle")
+    def Feature_Toggle(self, sender, inp, udata):
+        key, index = udata
+        self.db.Class.Features[key]["Toggle"][index] = inp
+        self.dbm.Class.Refresh()
+        self.pat.Class()
+        
     @register_callback("Class_S_Select")
     def Class_Select(self, sender, inp, udata):
         index = udata[0]
