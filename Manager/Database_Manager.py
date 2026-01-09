@@ -3,8 +3,8 @@ from Manager.Database import Database
 from colorist import green, red
 import inspect
 import re
-from Handler.Utils.Importer import bRace, bClass, bCaster 
-from Frontend.Utils.Importer import pat_Sheet, pat_Race, pat_Class, pat_Caster, pat_Bazaar, pat_Closet, pat_Backpack, pat_Logger, pat_Actions
+from Handler.Utils.Importer import bRace, bClass, bCaster, bBackground
+from Frontend.Utils.Importer import pat_Sheet, pat_Race, pat_Class, pat_Caster, pat_Bazaar, pat_Closet, pat_Backpack, pat_Logger, pat_Actions, pat_Background
 
 def register_callback(key):
     def wrapper(func):
@@ -18,6 +18,7 @@ class Populate:
         self.S = pat_Sheet()
         self.R = pat_Race()
         self.C = pat_Class()
+        self.BG = pat_Background()
         self.Cas = pat_Caster()
         self.Bazaar = pat_Bazaar()
         self.Closet = pat_Closet()
@@ -29,6 +30,7 @@ class Populate:
             "Sheet": self.S.All,
             "Race": self.R.Refresh,
             "Class": self.C.Refresh,
+            "Background": self.BG.Refresh,
             "Caster": self.Cas.Refresh,
             "Condition": self.S.Condition,
             "Cast": self.Cas.Cast_Spell,
@@ -50,7 +52,7 @@ class Populate:
                 method()
 
     def fat(self):
-        self.update("Sheet", "Race", "Class", "Caster", "Bazaar", "Closet", "Backpack", "Actions")
+        self.update("Sheet", "Race", "Class", "Background", "Caster", "Bazaar", "Closet", "Backpack", "Actions")
 
     def Startup(self):
         self.fat()
@@ -67,6 +69,9 @@ class Populate:
     def Class_Skill(self):
         self.update("Sheet", "Class", "Caster", "Skill")
     
+    def Background(self):
+        self.update("Background")
+        
     def Caster(self):
         self.update("Caster")
     
@@ -210,7 +215,8 @@ class cb_Core(cb_Base):
     @register_callback("mod_Background")
     def mod_Background(self, sender, inp, udata):
         self.db.Core.Sit_Gen("Background", inp)
-        self.pat.Sheet()
+        self.dbm.Background.New()
+        self.pat.Background()
 
 class cb_Class(cb_Base):
     @register_callback("Class_F_Select")
@@ -284,6 +290,18 @@ class cb_Race(cb_Base):
         self.atr_check(stat)
         self.pat.Race()
 
+class cb_Background(cb_Base):
+    @register_callback("Background_Feature_Update")
+    def Feature_Update(self, sender, inp, udata):
+        name, desc = udata
+        data = {
+            "Name": name,
+            "Desc": desc
+        }
+        self.db.Background.Sit_Features(data)
+        self.pat.Sheet()
+
+        
 class cb_Atr(cb_Base):
     @register_callback("Base_Atr")
     def Base(self, sender, inp, udata):
@@ -323,8 +341,8 @@ class cb_Caster(cb_Base):
 class cb_Inventory(cb_Base):
     @register_callback("Bazaar_Add_Item")
     def Bazaar_Add_Item(self, sender, inp, udata):
-        cat, item = udata
-        self.db.Inventory.Bazaar_Add_Item(cat, item)
+        item = udata[0]
+        self.db.Inventory.Bazaar_Add_Item(item)
         self.pat.Inventory()
 
     @register_callback("Backpack_Add_Item")
@@ -419,6 +437,7 @@ class DBM:
         self.cb_condition = cb_Condition(self)
         self.cb_race = cb_Race(self)
         self.cb_class = cb_Class(self)
+        self.cb_background = cb_Background(self)
         self.cb_caster = cb_Caster(self)
         self.cb_atr = cb_Atr(self)
         self.cb_inventory = cb_Inventory(self)
@@ -426,7 +445,7 @@ class DBM:
         self.Race = bRace()
         self.Class = bClass()
         self.Caster = bCaster()
-
+        self.Background = bBackground()
         self.cbh = Callback_Manager(self)
 
     @property
@@ -438,6 +457,7 @@ class DBM:
         self.Race.Startup()
         self.Class.Startup()
         self.Caster.Startup()
+        self.Background.Startup()
         self.populate.Startup()
 
     def sit(self, key, sender, data, params):
@@ -447,3 +467,13 @@ class DBM:
             return
         self.populate.Logger.Log(f"Sit: key-{key}, sender-{sender}, data-{data}, params-{params}")
         func(sender, data, params)
+        
+        
+        
+        
+        
+        
+        
+        
+
+

@@ -7,3 +7,4 @@ from Frontend.Armory.Closet import pat_Closet
 from Frontend.Armory.Backpack import pat_Backpack
 from Frontend.Logger import pat_Logger
 from Frontend.Actions import pat_Actions
+from Frontend.Background import pat_Background

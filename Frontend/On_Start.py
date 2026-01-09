@@ -315,8 +315,8 @@ def c_Block():
                     add_child_window(auto_resize_y=True, width=w2, border=True, tag=Tag.block.m.feature())
                     ####
                     add_separator(label="Background")
-                    add_child_window(auto_resize_y=True, width=w2, border=True, tag=Tag.block.b.panel())
-                    add_child_window(auto_resize_y=True, width=w2, border=True, tag=Tag.block.b.feature())
+                    add_child_window(auto_resize_y=True, width=w2, border=True, tag=Tag.block.bg.panel())
+                    add_child_window(auto_resize_y=True, width=w2, border=True, tag=Tag.block.bg.feature())
                     ####
             with tab(label="Actions", tag=Tag.block.tabbar.Actions()):
                 with child_window(auto_resize_x=True, auto_resize_y=True, border=True):

@@ -110,3 +110,5 @@ class Rules:
         self.l = collect_lists(self.d)
         
     def g_Item_Rarity(self, tier): return ["Common", "Uncommon", "Rare", "Very_Rare", "Legendary"][tier]
+    
+    

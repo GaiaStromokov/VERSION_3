@@ -1,3 +1,4 @@
+import select
 from Utils.Pathing import get_path
 from Handbook.Rules import Rules
 import json
@@ -181,17 +182,28 @@ class m_Inventory:
         self.Backpack = data["Backpack"]
     
     def Bazaar_Add_Item(self, cat, item):
-        if item in self.Backpack.keys(): self.Backpack[item] += 1
-        else: self.Backpack[item] = 1
+        self.Backpack_Add_Item(item)
 
     def Backpack_Add_Item(self, item):
-        self.Backpack[item] += 1
+        if item not in self.Backpack: self.Backpack[item] = {}
+        self.Backpack[item]["Player"] = self.Backpack[item].get("Player", 0) + 1
+
     def Backpack_Sub_Item(self, item):
-        self.Backpack[item] -= 1
-        if self.Backpack[item] <= 0: del self.Backpack[item]
+        pack = self.Backpack[item]
+        parent = "Player" if "Player" in pack else next(iter(pack))
+        pack[parent] -= 1
+        if pack[parent] <= 0: del pack[parent]
+        if not pack: del self.Backpack[item]
+
     def Backpack_Clear_Item(self, item):
         del self.Backpack[item]
-    
+
+    def Backpack_Clear_Parent(self, parent):
+        for item in list(self.Backpack.keys()):
+            pack = self.Backpack[item]
+            if parent in pack:
+                del pack[parent]
+                if not pack: del self.Backpack[item]
     
     def Closet_Clear(self, slot):
         setattr(self.Closet, slot, "")
@@ -204,10 +216,12 @@ class m_Inventory:
             self.Closet.Hand_2 = "Grip"
             return
         if self.Closet.Hand_2 == "Grip":
-            if self.Closet.Hand_1 != name or ("Two-handed" not in dh1.prop and "Versatile" not in dh1.prop): self.Closet.Hand_2 = ""
-        if "Versatile" in dh1.prop and self.Closet.Hand_2 == self.Closet.Hand_1: self.Closet.Hand_2 = "Grip"
-        if slot == "Hand_2" and "Two-handed" in dh1.prop: self.Closet.Hand_2 = ""
-
+            if self.Closet.Hand_1 != name or ("Two-handed" not in dh1.prop and "Versatile" not in dh1.prop):
+                self.Closet.Hand_2 = ""
+        if "Versatile" in dh1.prop and self.Closet.Hand_2 == self.Closet.Hand_1:
+            self.Closet.Hand_2 = "Grip"
+        if slot == "Hand_2" and "Two-handed" in dh1.prop:
+            self.Closet.Hand_2 = ""
 
     def Closet_Armor(self, slot, name, data):
         pass 
@@ -217,6 +231,7 @@ class m_Inventory:
             "Closet": self.Closet.to_dict(),
             "Backpack": self.Backpack,
         }
+
         
 
 class m_Caster:
@@ -640,6 +655,69 @@ class m_Class:
             "Skill": self.Skill.to_dict()
         }
 
+class s_Background_Feature:
+    def __init__(self, data):
+        self.Name = data["Name"]
+        self.Desc = data["Desc"]
+    
+    def Sit(self, name, desc):
+        self.Name = name
+        self.Desc = desc
+
+    def Clear(self):
+        self.Name = ""
+        self.Desc = ""
+    def to_dict(self):
+        return {
+            "Name": self.Name,
+            "Desc": self.Desc
+        }
+
+class s_Background_Selects:
+    def __init__(self, data):
+        self.Select = data["Select"]
+        self.Options = data["Options"]
+
+    def Sit(self, select, options):
+        self.Select = select
+        self.Options = options
+    
+    def Clear(self):
+        self.Select = ""
+        self.Options = []
+
+    def to_dict(self):
+        return {
+            "Select": self.Select,
+            "Options": self.Options
+        }
+
+
+class m_Background:
+    def __init__(self, db, data):
+        self.db = db
+        self.Features = s_Background_Feature(data["Features"])
+        self.Tool  = s_Background_Selects(data["Tool"])
+        self.Lang = s_Background_Selects(data["Lang"])
+        
+    def Sit_Features(self, Name, Desc): self.Features.Sit(Name, Desc)
+    def Sit_Tool(self, Select, options): self.Tool.Sit(Select, options)
+    def Sit_Lang(self, Select, options): self.Lang.Sit(Select, options)
+
+
+    def Clear(self):
+        self.Features.Clear()
+        self.Tool.Clear()
+        self.Lang.Clear()
+    def Clear_Tool(self): self.Tool.Clear()
+    def Clear_Lang(self): self.Lang.Clear()
+    def to_dict(self):
+        return {
+            "Features": self.Features.to_dict(),
+            "Tool": self.Tool.to_dict(),
+            "Lang": self.Lang.to_dict()
+        }
+
 class m_Initiative:
     def __init__(self, db, data):
         self.db = db
@@ -684,7 +762,18 @@ class Database:
         self.Race = m_Race(self, sheet["Race"])
         self.Class = m_Class(self, sheet["Class"])
         self.Caster = m_Caster(self, sheet["Caster"])
+        self.Background = m_Background(self, sheet["Background"])
         self.Inventory = m_Inventory(self, sheet["Inventory"])
+
+    def Clear_Background_Globals(self):
+        for item in ("Armor", "Weapon", "Tool", "Lang"):
+            self.Prof.Clear(item, "Background")
+
+        for name in vars(self.Skill).keys():
+            self.Skill.Clear(name, "Background")
+        
+        self.Background.Clear()
+            
 
     def Clear_Class_Globals(self):
         for item in ("Dark", "Blind", "Tru", "Tremor"):
@@ -733,6 +822,7 @@ class Database:
             "Skill": self.Skill.to_dict(),
             "Race": self.Race.to_dict(),
             "Class": self.Class.to_dict(),
+            "Background": self.Background.to_dict(),
             "Caster": self.Caster.to_dict(),
             "Condition": self.Condition.to_dict(),
             "Inventory": self.Inventory.to_dict()

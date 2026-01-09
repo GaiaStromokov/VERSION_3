@@ -49,7 +49,7 @@ class pat_Backpack():
         for idx, id in enumerate(backpack):
             cdata = self.itm.get(id)
 
-            qty = backpack[id]
+            qty = sum(backpack[id].values())
             
             weight = cdata.Weight * qty
             cost = cdata.Cost * qty

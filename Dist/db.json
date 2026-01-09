@@ -5,7 +5,7 @@
         "Subrace": "",
         "Class": "Monk",
         "Subclass": "",
-        "Background": "Empty"
+        "Background": "Criminal"
     },
     "Atr": {
         "STR": {
@@ -119,18 +119,18 @@
             "Race": [],
             "Class": [
                 [
-                    "Mace",
-                    "Light_Crossbow",
-                    "Light_Hammer",
-                    "Quarterstaff",
-                    "Club",
-                    "Sickle",
-                    "Handaxe",
-                    "Dart",
-                    "Spear",
-                    "Sling",
-                    "Shortbow",
                     "Javelin",
+                    "Light_Hammer",
+                    "Dart",
+                    "Sickle",
+                    "Mace",
+                    "Quarterstaff",
+                    "Sling",
+                    "Spear",
+                    "Handaxe",
+                    "Club",
+                    "Shortbow",
+                    "Light_Crossbow",
                     "Shortsword"
                 ]
             ],
@@ -142,7 +142,9 @@
             "Race": [],
             "Class": [],
             "Milestone": [],
-            "Background": []
+            "Background": [
+                "Thief"
+            ]
         },
         "Lang": {
             "Base": [],
@@ -239,7 +241,7 @@
                 false
             ],
             "Background": [
-                false,
+                true,
                 false
             ]
         },
@@ -455,7 +457,7 @@
                 false
             ],
             "Background": [
-                false,
+                true,
                 false
             ]
         },
@@ -545,6 +547,27 @@
             ]
         }
     },
+    "Background": {
+        "Features": {
+            "Name": "Criminal Contact",
+            "Desc": "You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals. You know how to get messages to and from your contact, even over great distances; specifically, you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you."
+        },
+        "Tool": {
+            "Select": [
+                ""
+            ],
+            "Options": [
+                "Dice",
+                "Dragonchess",
+                "Cards",
+                "Three-Dragon Ante"
+            ]
+        },
+        "Lang": {
+            "Select": "",
+            "Options": []
+        }
+    },
     "Caster": {
         "Max_Spell_Level": null,
         "Cantrips_Available": null,
@@ -587,11 +610,18 @@
             "Hand_2": "Grip"
         },
         "Backpack": {
-            "Quarterstaff": 4,
-            "Halberd_2": 1,
-            "Shield": 1,
-            "Rapier": 1,
-            "Morningstar": 1
+            "Quarterstaff": {
+                "Player": 4
+            },
+            "Morningstar": {
+                "Player": 1
+            },
+            "Shield": {
+                "Player": 1
+            },
+            "Rapier": {
+                "Player": 1
+            }
         }
     }
 }
