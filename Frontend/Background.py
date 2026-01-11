@@ -48,16 +48,16 @@ class pat_Background:
                 data = self.Tools
                 if data.Options:
                     add_text("Tool Select", color=Coler.Header.B)
-                    for val, key in enumerate(data.Select):
-                            t_combo = Tag.block.bg.panel.select(val,key)
-                            add_combo(items=data.Options, default_value=val, width=100, no_arrow_button=True, user_data=[val, key], callback=q.cbh.Background_Tool_Select, tag=t_combo)
+                    for key, val in enumerate(data.Select):
+                        t_combo = Tag.block.bg.panel.select(key, val)
+                        add_combo(items=data.Options, default_value=val, width=100, no_arrow_button=True, user_data=[key, val], callback=q.cbh.Background_Tool_Select, tag=t_combo)
             with group(horizontal=True):
                 data = self.Langs
                 if data.Options:
                     add_text("Language Select", color=Coler.Header.B)
-                    for val, key in enumerate(data.Select):
-                            t_combo = Tag.block.bg.panel.select(val,key)
-                            add_combo(items=data.Options, default_value=val, width=100, no_arrow_button=True, user_data=[val, key], callback=q.cbh.Background_Lang_Select, tag=t_combo)
+                    for key, val in enumerate(data.Select):
+                            t_combo = Tag.block.bg.panel.select(key, val)
+                            add_combo(items=data.Options, default_value=val, width=100, no_arrow_button=True, user_data=[key, val], callback=q.cbh.Background_Lang_Select, tag=t_combo)
 
     def Feature(self):
         data = self.Features

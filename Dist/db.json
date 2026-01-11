@@ -5,7 +5,7 @@
         "Subrace": "",
         "Class": "Monk",
         "Subclass": "",
-        "Background": "Criminal"
+        "Background": "Folk_Hero"
     },
     "Atr": {
         "STR": {
@@ -119,18 +119,18 @@
             "Race": [],
             "Class": [
                 [
-                    "Javelin",
-                    "Light_Hammer",
-                    "Dart",
-                    "Sickle",
-                    "Mace",
-                    "Quarterstaff",
-                    "Sling",
                     "Spear",
-                    "Handaxe",
-                    "Club",
+                    "Light_Hammer",
+                    "Quarterstaff",
+                    "Sickle",
+                    "Javelin",
                     "Shortbow",
                     "Light_Crossbow",
+                    "Sling",
+                    "Handaxe",
+                    "Club",
+                    "Mace",
+                    "Dart",
                     "Shortsword"
                 ]
             ],
@@ -142,9 +142,7 @@
             "Race": [],
             "Class": [],
             "Milestone": [],
-            "Background": [
-                "Thief"
-            ]
+            "Background": []
         },
         "Lang": {
             "Base": [],
@@ -187,7 +185,7 @@
                 false
             ],
             "Background": [
-                false,
+                true,
                 false
             ]
         },
@@ -241,7 +239,7 @@
                 false
             ],
             "Background": [
-                true,
+                false,
                 false
             ]
         },
@@ -457,7 +455,7 @@
                 false
             ],
             "Background": [
-                true,
+                false,
                 false
             ]
         },
@@ -475,7 +473,7 @@
                 false
             ],
             "Background": [
-                false,
+                true,
                 false
             ]
         }
@@ -549,22 +547,39 @@
     },
     "Background": {
         "Features": {
-            "Name": "Criminal Contact",
-            "Desc": "You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals. You know how to get messages to and from your contact, even over great distances; specifically, you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you."
+            "Name": "Rustic Hospitality",
+            "Desc": "Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will shield you from the law or anyone else searching for you, though they will not risk their lives for you."
         },
         "Tool": {
             "Select": [
                 ""
             ],
             "Options": [
-                "Dice",
-                "Dragonchess",
-                "Cards",
-                "Three-Dragon Ante"
+                "Alchemist",
+                "Brewer",
+                "Calligrapher",
+                "Carpenter",
+                "Cartographer",
+                "Cobbler",
+                "Cook",
+                "Glassblower",
+                "Jeweler",
+                "Leatherworker",
+                "Mason",
+                "Painter",
+                "Potter",
+                "Smith",
+                "Tinker",
+                "Weaver",
+                "Thief",
+                "Woodworker",
+                "Navigator",
+                "Disguise",
+                "Forgery"
             ]
         },
         "Lang": {
-            "Select": "",
+            "Select": [],
             "Options": []
         }
     },

@@ -683,7 +683,7 @@ class s_Background_Selects:
         self.Options = options
     
     def Clear(self):
-        self.Select = ""
+        self.Select = []
         self.Options = []
 
     def to_dict(self):

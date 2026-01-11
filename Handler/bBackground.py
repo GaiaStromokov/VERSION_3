@@ -19,7 +19,9 @@ class bBackground:
         self.Refresh_Background_Data()
 
     def Refresh(self):
-        return
+        if not self.BG: return
+        self.Mode = "Refresh"
+        self.Refresh_Background_Data()
 
     def New(self):
         if not self.BG: return
@@ -32,41 +34,59 @@ class bBackground:
         if self.BG not in Background_Catalog: return
         Actor = Background_Catalog[self.BG]
         instance = Actor(self)
-        instance.execute()
+        instance.Run()
 
 class tBackground:
     def __init__(self, mgr):
         self.bBackground = mgr
 
     @property
-    def db(self): return self.bBackground.db
-
-    @property
-    def dbm(self): return self.bBackground.dbm
+    def db(self): return q.dbm.db
 
     def Skill(self, items):
         for name in items:
             self.db.Skill.Sit(name, "Background", 0, True)
+
     def Tool(self, items):
         for name in items:
             self.db.Prof.Tool.Sit("Background", name)
+
     def Lang(self, items):
         for name in items:
             self.db.Prof.Lang.Sit("Background", name)
 
     def Tool_Select(self, items, qty):
-        Selects = [""] * qty
-        self.db.Background.Sit_Tool(Selects, items)
-
+        Mode = self.bBackground.Mode
+        
+        if Mode == "New":
+            self.db.Background.Sit_Tool([""] * qty, items)
+        
+        if Mode == "Refresh":
+            past = self.db.Background.Tool.Select
+            Selects = (past + [""] * qty)[:qty]
+            self.db.Background.Sit_Tool(Selects, items)
+            
+            for tool in Selects:
+                if tool:
+                    self.db.Prof.Tool.Sit("Background", tool)
 
     def Lang_Select(self, items, qty):
-        Selects = [""] * qty
-        self.db.Background.Sit_Lang(Selects, items)
-
-    
+        Mode = self.bBackground.Mode
+        
+        if Mode == "New":
+            self.db.Background.Sit_Lang([""] * qty, items)
+        
+        if Mode == "Refresh":
+            past = self.db.Background.Lang.Select
+            Selects = (past + [""] * qty)[:qty]
+            self.db.Background.Sit_Lang(Selects, items)
+            
+            for lang in Selects:
+                if lang:
+                    self.db.Prof.Lang.Sit("Background", lang)
 
     def Features(self, data):
         self.db.Background.Sit_Features(data["Name"], data["Desc"])
 
-    def execute(self):
+    def Run(self):
         pass
