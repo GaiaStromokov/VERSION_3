@@ -119,18 +119,18 @@
             "Race": [],
             "Class": [
                 [
-                    "Spear",
-                    "Light_Hammer",
-                    "Quarterstaff",
-                    "Sickle",
-                    "Javelin",
-                    "Shortbow",
-                    "Light_Crossbow",
-                    "Sling",
-                    "Handaxe",
-                    "Club",
                     "Mace",
+                    "Spear",
+                    "Handaxe",
+                    "Light_Hammer",
+                    "Sickle",
                     "Dart",
+                    "Club",
+                    "Javelin",
+                    "Light_Crossbow",
+                    "Shortbow",
+                    "Quarterstaff",
+                    "Sling",
                     "Shortsword"
                 ]
             ],

@@ -291,15 +291,18 @@ class cb_Race(cb_Base):
         self.pat.Race()
 
 class cb_Background(cb_Base):
-    @register_callback("Background_Feature_Update")
-    def Feature_Update(self, sender, inp, udata):
-        name, desc = udata
-        data = {
-            "Name": name,
-            "Desc": desc
-        }
-        self.db.Background.Sit_Features(data)
-        self.pat.Sheet()
+    @register_callback("Background_Tool_Select")
+    def Tool_Select(self, sender, inp, udata):
+        val, key = udata
+        self.db.Background.Tool.Sit(key, inp)
+        self.pat.Background()
+
+    @register_callback("Background_Lang_Select")
+    def Tool_Select(self, sender, inp, udata):
+        val, key = udata
+        self.db.Background.Lang.Sit(key, inp)
+        self.pat.Background()
+
 
         
 class cb_Atr(cb_Base):

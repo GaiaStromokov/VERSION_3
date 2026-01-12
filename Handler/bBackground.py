@@ -57,36 +57,40 @@ class tBackground:
 
     def Tool_Select(self, items, qty):
         Mode = self.bBackground.Mode
-        
+        blank = [""] * qty
         if Mode == "New":
-            self.db.Background.Sit_Tool([""] * qty, items)
-        
+            self.db.Background.Tool.Select = blank
+            self.db.Background.Tool.Options = items
+
         if Mode == "Refresh":
             past = self.db.Background.Tool.Select
-            Selects = (past + [""] * qty)[:qty]
-            self.db.Background.Sit_Tool(Selects, items)
-            
+            Selects = (past + blank)[:qty]
+
+            self.db.Background.Tool.Select = Selects
+            self.db.Background.Tool.Options = items
+
+
             for tool in Selects:
-                if tool:
-                    self.db.Prof.Tool.Sit("Background", tool)
+                if tool: self.db.Prof.Tool.Sit("Background", tool)
 
     def Lang_Select(self, items, qty):
         Mode = self.bBackground.Mode
-        
+        blank = [""] * qty
         if Mode == "New":
-            self.db.Background.Sit_Lang([""] * qty, items)
+            self.db.Background.Lang.Select = blank
+            self.db.Background.Lang.Options = items
         
         if Mode == "Refresh":
             past = self.db.Background.Lang.Select
-            Selects = (past + [""] * qty)[:qty]
-            self.db.Background.Sit_Lang(Selects, items)
+            Selects = (past + blank)[:qty]
+            self.db.Background.Lang.Select = Selects
+            self.db.Background.Lang.Options = items
             
             for lang in Selects:
-                if lang:
-                    self.db.Prof.Lang.Sit("Background", lang)
+                if lang: self.db.Prof.Lang.Sit("Background", lang)
 
     def Features(self, data):
-        self.db.Background.Sit_Features(data["Name"], data["Desc"])
+        self.db.Background.Features.Sit(data["Name"], data["Desc"])
 
     def Run(self):
         pass

@@ -678,10 +678,8 @@ class s_Background_Selects:
         self.Select = data["Select"]
         self.Options = data["Options"]
 
-    def Sit(self, select, options):
-        self.Select = select
-        self.Options = options
-    
+    def Sit(self, key, val):
+        self.Select[key] = val
     def Clear(self):
         self.Select = []
         self.Options = []
@@ -700,9 +698,6 @@ class m_Background:
         self.Tool  = s_Background_Selects(data["Tool"])
         self.Lang = s_Background_Selects(data["Lang"])
         
-    def Sit_Features(self, Name, Desc): self.Features.Sit(Name, Desc)
-    def Sit_Tool(self, Select, options): self.Tool.Sit(Select, options)
-    def Sit_Lang(self, Select, options): self.Lang.Sit(Select, options)
 
 
     def Clear(self):
