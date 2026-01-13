@@ -49,21 +49,21 @@ class pat_Background:
                 if data.Options:
                     add_text("Tool Select", color=Coler.Header.B)
                     for key, val in enumerate(data.Select):
-                        t_combo = Tag.block.bg.panel.select(key, val)
-                        add_combo(items=data.Options, default_value=val, width=100, no_arrow_button=True, user_data=[key, val], callback=q.cbh.Background_Tool_Select, tag=t_combo)
+                        t_combo = Tag.block.bg.panel.select(key)
+                        add_combo(items=data.Options, default_value=val, width=100, no_arrow_button=True, user_data=[key], callback=q.cbh.Background_Tool_Select, tag=t_combo)
             with group(horizontal=True):
                 data = self.Langs
                 if data.Options:
                     add_text("Language Select", color=Coler.Header.B)
                     for key, val in enumerate(data.Select):
-                            t_combo = Tag.block.bg.panel.select(key, val)
-                            add_combo(items=data.Options, default_value=val, width=100, no_arrow_button=True, user_data=[key, val], callback=q.cbh.Background_Lang_Select, tag=t_combo)
+                            t_combo = Tag.block.bg.panel.select(key)
+                            add_combo(items=data.Options, default_value=val, width=100, no_arrow_button=True, user_data=[key], callback=q.cbh.Background_Lang_Select, tag=t_combo)
 
     def Feature(self):
         data = self.Features
         Name = data.Name
         Desc = data.Desc
-        
+
         t_text = Tag.block.bg.feature.text()
         
         icl(t_Feature)

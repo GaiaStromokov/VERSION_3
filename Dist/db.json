@@ -1,10 +1,10 @@
 {
     "Core": {
-        "Level": 2,
+        "Level": 3,
         "Race": "Empty",
         "Subrace": "",
-        "Class": "Monk",
-        "Subclass": "",
+        "Class": "Fighter",
+        "Subclass": "Champion",
         "Background": "Folk_Hero"
     },
     "Atr": {
@@ -104,13 +104,20 @@
     "HD": {
         "Val": 0,
         "Current": 0,
-        "Max": 2
+        "Max": 3
     },
     "Prof": {
         "Armor": {
             "Base": [],
             "Race": [],
-            "Class": [],
+            "Class": [
+                [
+                    "Light",
+                    "Medium",
+                    "Heavy",
+                    "Shield"
+                ]
+            ],
             "Milestone": [],
             "Background": []
         },
@@ -119,19 +126,38 @@
             "Race": [],
             "Class": [
                 [
-                    "Mace",
+                    "Glaive",
+                    "War_Pick",
+                    "Rapier",
+                    "Blowgun",
+                    "Longsword",
+                    "Trident",
                     "Spear",
-                    "Handaxe",
-                    "Light_Hammer",
-                    "Sickle",
-                    "Dart",
+                    "Hand_Crossbow",
+                    "Maul",
+                    "Sling",
                     "Club",
+                    "Whip",
+                    "Battle_axe",
+                    "Light_Hammer",
+                    "Shortsword",
+                    "Heavy_Crossbow",
                     "Javelin",
                     "Light_Crossbow",
+                    "Great_axe",
+                    "Handaxe",
+                    "Pike",
+                    "Halberd",
                     "Shortbow",
+                    "Morningstar",
+                    "Scimitar",
+                    "Dart",
+                    "Flail",
                     "Quarterstaff",
-                    "Sling",
-                    "Shortsword"
+                    "Long_bow",
+                    "Sickle",
+                    "Warhammer",
+                    "Mace"
                 ]
             ],
             "Milestone": [],
@@ -483,61 +509,68 @@
     },
     "Class": {
         "Features": {
-            "Unarmored_Defense": {
-                "Tag": "Passive",
+            "Second_Wind": {
+                "Tag": "Use",
                 "Desc": [
-                    "While not wearing armor or shield, AC = 10."
-                ]
-            },
-            "Martial_Arts": {
-                "Tag": "Passive",
-                "Desc": [
-                    "Use DEX instead of STR for Monk weapons/Unarmed.",
-                    "Martial Arts Die: 1d4",
-                    "Bonus Action Unarmed Strike after Attack action."
-                ]
-            },
-            "Ki": {
-                "Tag": "Resource",
-                "Desc": [],
-                "Points": [
-                    2,
-                    2
+                    "(Bonus Action) Regain 1d10 + 3 HP."
                 ],
-                "Actions": {
-                    "Flurry_of_Blows": {
-                        "Cost": 1,
-                        "Desc": "Immediately after Attack action, make two unarmed strikes as bonus action."
-                    },
-                    "Patient_Defense": {
-                        "Cost": 1,
-                        "Desc": "Dodge action as bonus action."
-                    },
-                    "Step_of_the_Wind": {
-                        "Cost": 1,
-                        "Desc": "Disengage or Dash as bonus action, jump distance doubled."
-                    }
-                },
+                "Use": [
+                    false
+                ],
                 "Recharge": [
                     "Short",
                     "Long"
                 ]
             },
-            "Unarmored_Movement": {
+            "Action_Surge": {
+                "Tag": "Use",
+                "Desc": [
+                    "(Free) Take one additional action on your turn."
+                ],
+                "Use": [
+                    false
+                ],
+                "Recharge": [
+                    "Short",
+                    "Long"
+                ]
+            },
+            "Fighting_Style": {
+                "Tag": "Select",
+                "Desc": [
+                    ""
+                ],
+                "Select": [
+                    ""
+                ],
+                "Options": [
+                    "Archery",
+                    "Defense",
+                    "Dueling",
+                    "Great Weapon Fighting",
+                    "Protection",
+                    "Two Weapon Fighting",
+                    "Blind Fighting",
+                    "Interception",
+                    "Thrown Weapon Fighting",
+                    "Unarmed Fighting"
+                ]
+            },
+            "Improved_Critical": {
                 "Tag": "Passive",
                 "Desc": [
-                    "Speed increased by 10 ft while unarmored."
+                    "Weapon attacks crit on 19-20"
                 ]
             }
         },
         "Skill": {
             "Options": [
-                "Acrobatics",
-                "Athletics",
+                "Arcana",
                 "History",
                 "Insight",
-                "Religion",
-                "Stealth"
+                "Investigation",
+                "Medicine",
+                "Religion"
             ],
             "Select": [
                 "",
@@ -555,6 +588,7 @@
                 ""
             ],
             "Options": [
+                "",
                 "Alchemist",
                 "Brewer",
                 "Calligrapher",

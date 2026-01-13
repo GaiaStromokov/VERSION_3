@@ -680,6 +680,7 @@ class s_Background_Selects:
 
     def Sit(self, key, val):
         self.Select[key] = val
+        
     def Clear(self):
         self.Select = []
         self.Options = []
@@ -760,7 +761,16 @@ class Database:
         self.Background = m_Background(self, sheet["Background"])
         self.Inventory = m_Inventory(self, sheet["Inventory"])
 
-    def Clear_Background_Globals(self):
+    def Clear_Partial_Background(self):
+        for item in ("Armor", "Weapon", "Tool", "Lang"):
+            self.Prof.Clear(item, "Background")
+
+        for name in vars(self.Skill).keys():
+            self.Skill.Clear(name, "Background")
+
+
+
+    def Clear_Full_Background(self):
         for item in ("Armor", "Weapon", "Tool", "Lang"):
             self.Prof.Clear(item, "Background")
 

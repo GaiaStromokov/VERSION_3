@@ -293,15 +293,22 @@ class cb_Race(cb_Base):
 class cb_Background(cb_Base):
     @register_callback("Background_Tool_Select")
     def Tool_Select(self, sender, inp, udata):
-        val, key = udata
+        key = udata[0]
+        print(self.db.Background.Tool.Select)
         self.db.Background.Tool.Sit(key, inp)
+        print(self.db.Background.Tool.Select)
+        self.dbm.Background.Refresh()
+        print(self.db.Background.Tool.Select)
         self.pat.Background()
+        self.pat.Sheet()
 
     @register_callback("Background_Lang_Select")
-    def Tool_Select(self, sender, inp, udata):
-        val, key = udata
+    def Lang_Select(self, sender, inp, udata):
+        key = udata[0]
         self.db.Background.Lang.Sit(key, inp)
+        self.dbm.Background.Refresh()
         self.pat.Background()
+        self.pat.Sheet()
 
 
         

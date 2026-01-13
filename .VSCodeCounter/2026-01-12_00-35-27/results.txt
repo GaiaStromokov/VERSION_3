@@ -1,0 +1,103 @@
+Date : 2026-01-12 00:35:27
+Directory : c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3
+Total : 57 files,  13102 codes, 29 comments, 1293 blanks, all 14424 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Python   |         55 |     12,388 |         29 |      1,279 |     13,696 |
+| JSON     |          1 |        642 |          0 |          0 |        642 |
+| Ini      |          1 |         72 |          0 |         14 |         86 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                      | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                         |         57 |     13,102 |         29 |      1,293 |     14,424 |
+| . (Files)                                                                                                 |          2 |         50 |          0 |         16 |         66 |
+| Dist                                                                                                      |          1 |        642 |          0 |          0 |        642 |
+| Frontend                                                                                                  |         12 |      1,304 |         25 |        338 |      1,667 |
+| Frontend (Files)                                                                                          |          8 |      1,146 |         25 |        286 |      1,457 |
+| Frontend\Armory                                                                                           |          3 |        148 |          0 |         52 |        200 |
+| Frontend\Utils                                                                                            |          1 |         10 |          0 |          0 |         10 |
+| Handbook                                                                                                  |          2 |      6,704 |          0 |         22 |      6,726 |
+| Handler                                                                                                   |         30 |      2,217 |          1 |        458 |      2,676 |
+| Handler (Files)                                                                                           |          5 |        387 |          0 |        122 |        509 |
+| Handler\Cataloges                                                                                         |          4 |         43 |          0 |          5 |         48 |
+| Handler\Data_Files                                                                                        |         19 |      1,731 |          1 |        321 |      2,053 |
+| Handler\Data_Files\Data_Background                                                                        |          1 |        134 |          0 |         16 |        150 |
+| Handler\Data_Files\Data_Caster                                                                            |          3 |         87 |          0 |         18 |        105 |
+| Handler\Data_Files\Data_Class                                                                             |          5 |        897 |          0 |        180 |      1,077 |
+| Handler\Data_Files\Data_Race                                                                              |         10 |        613 |          1 |        107 |        721 |
+| Handler\Utils                                                                                             |          2 |         56 |          0 |         10 |         66 |
+| Manager                                                                                                   |          4 |      1,895 |          3 |        389 |      2,287 |
+| Utils                                                                                                     |          6 |        290 |          0 |         70 |        360 |
+| Utils (Files)                                                                                             |          3 |        115 |          0 |         25 |        140 |
+| Utils\UI                                                                                                  |          3 |        175 |          0 |         45 |        220 |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                  | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Dist\db.json                                      | JSON     |        642 |          0 |          0 |        642 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Actions.py                               | Python   |         76 |          0 |         25 |        101 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Armory\Backpack.py                       | Python   |         60 |          0 |         22 |         82 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Armory\Bazaar.py                         | Python   |         51 |          0 |         16 |         67 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Armory\Closet.py                         | Python   |         37 |          0 |         14 |         51 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Background.py                            | Python   |         57 |          0 |         16 |         73 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Caster.py                                | Python   |        144 |          0 |         49 |        193 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Class.py                                 | Python   |        173 |          0 |         55 |        228 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Logger.py                                | Python   |          9 |          0 |          2 |         11 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\On_Start.py                              | Python   |        431 |          8 |         57 |        496 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Race.py                                  | Python   |        140 |          0 |         49 |        189 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Sheet.py                                 | Python   |        116 |         17 |         33 |        166 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Frontend\Utils\Importer.py                        | Python   |         10 |          0 |          0 |         10 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handbook\Grimoir.py                               | Python   |      6,607 |          0 |          4 |      6,611 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handbook\Rules.py                                 | Python   |         97 |          0 |         18 |        115 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Cataloges\Background_Catalog.py           | Python   |          1 |          0 |          1 |          2 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Cataloges\Caster_Catalog.py               | Python   |          8 |          0 |          2 |         10 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Cataloges\Class_Catalog.py                | Python   |         12 |          0 |          1 |         13 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Cataloges\Race_Catalog.py                 | Python   |         22 |          0 |          1 |         23 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Background\Backgrounds.py | Python   |        134 |          0 |         16 |        150 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Caster\Empty.py           | Python   |          9 |          0 |          4 |         13 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Caster\Fighter.py         | Python   |         39 |          0 |          7 |         46 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Caster\Wizard.py          | Python   |         39 |          0 |          7 |         46 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Class\Barbarian.py        | Python   |        245 |          0 |         44 |        289 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Class\Empty.py            | Python   |         12 |          0 |          3 |         15 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Class\Fighter.py          | Python   |        229 |          0 |         51 |        280 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Class\Monk.py             | Python   |        221 |          0 |         27 |        248 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Class\Wizard.py           | Python   |        190 |          0 |         55 |        245 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Race\Dragonborn.py        | Python   |        125 |          0 |         15 |        140 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Race\Dwarf.py             | Python   |         44 |          0 |          7 |         51 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Race\Elf.py               | Python   |        125 |          1 |         27 |        153 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Race\Empty.py             | Python   |         10 |          0 |          2 |         12 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Race\Gnome.py             | Python   |         69 |          0 |         13 |         82 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Race\Half_Orc.py          | Python   |         34 |          0 |          6 |         40 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Race\Halfling.py          | Python   |         52 |          0 |          9 |         61 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Race\Harengon.py          | Python   |         40 |          0 |          7 |         47 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Race\Human.py             | Python   |         12 |          0 |          2 |         14 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Data_Files\Data_Race\Tiefling.py          | Python   |        102 |          0 |         19 |        121 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Utils\Importer.py                         | Python   |          4 |          0 |          0 |          4 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\Utils\funcs.py                            | Python   |         52 |          0 |         10 |         62 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\bArmor.py                                 | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\bBackground.py                            | Python   |         69 |          0 |         23 |         92 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\bCaster.py                                | Python   |        119 |          0 |         37 |        156 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\bClass.py                                 | Python   |         97 |          0 |         30 |        127 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Handler\bRace.py                                  | Python   |        102 |          0 |         31 |        133 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Main.py                                           | Python   |         37 |          0 |         12 |         49 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Manager\Database.py                               | Python   |        684 |          3 |        145 |        832 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Manager\Database_Manager.py                       | Python   |        382 |          0 |         98 |        480 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Manager\Item_Manager.py                           | Python   |        558 |          0 |         71 |        629 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Manager\database_backup.py                        | Python   |        271 |          0 |         75 |        346 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Utils\Pathing.py                                  | Python   |          4 |          0 |          2 |          6 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Utils\UI\c_Size.py                                | Python   |         44 |          0 |         11 |         55 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Utils\UI\c_Tag.py                                 | Python   |         40 |          0 |         10 |         50 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Utils\UI\f_Utility.py                             | Python   |         91 |          0 |         24 |        115 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Utils\color_reference.py                          | Python   |         39 |          0 |          9 |         48 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\Utils\config_save.ini                             | Ini      |         72 |          0 |         14 |         86 |
+| c:\Users\gaiam\Documents\VERSION WE ARE USING\VERSION_3\q.py                                              | Python   |         13 |          0 |          4 |         17 |
+| Total                                                                                                     |          |     13,102 |         29 |      1,293 |     14,424 |
++-----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

@@ -30,7 +30,12 @@ class bBackground:
 
     def Refresh_Background_Data(self):
         from Handler.Cataloges.Background_Catalog import Background_Catalog
-        self.db.Clear_Background_Globals()
+        
+        if self.Mode == "New":
+            self.db.Clear_Full_Background()
+        else:
+            self.db.Clear_Partial_Background()
+        
         if self.BG not in Background_Catalog: return
         Actor = Background_Catalog[self.BG]
         instance = Actor(self)
@@ -57,34 +62,35 @@ class tBackground:
 
     def Tool_Select(self, items, qty):
         Mode = self.bBackground.Mode
+        litems = [""] + items
         blank = [""] * qty
         if Mode == "New":
             self.db.Background.Tool.Select = blank
-            self.db.Background.Tool.Options = items
+            self.db.Background.Tool.Options = litems
 
         if Mode == "Refresh":
             past = self.db.Background.Tool.Select
             Selects = (past + blank)[:qty]
 
             self.db.Background.Tool.Select = Selects
-            self.db.Background.Tool.Options = items
-
+            self.db.Background.Tool.Options = litems
 
             for tool in Selects:
                 if tool: self.db.Prof.Tool.Sit("Background", tool)
 
     def Lang_Select(self, items, qty):
         Mode = self.bBackground.Mode
+        litems = [""] + items
         blank = [""] * qty
         if Mode == "New":
             self.db.Background.Lang.Select = blank
-            self.db.Background.Lang.Options = items
+            self.db.Background.Lang.Options = litems
         
         if Mode == "Refresh":
             past = self.db.Background.Lang.Select
             Selects = (past + blank)[:qty]
             self.db.Background.Lang.Select = Selects
-            self.db.Background.Lang.Options = items
+            self.db.Background.Lang.Options = litems
             
             for lang in Selects:
                 if lang: self.db.Prof.Lang.Sit("Background", lang)
